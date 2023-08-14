@@ -10,9 +10,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white01_F3F4F7"
+        android:padding="28dp"
         tools:context=".presenter.main.MainActivity">
 
+        <TextView
+            android:id="@+id/tv_main_introduce1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_introduce1"
+            android:textColor="@color/blue01_264790"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_main_introduce2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_introduce2"
+            android:textColor="@color/blue01_264790"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_main_introduce1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_introduce1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_introduce2"
+            tools:listitem="@layout/item_main_list"
+            app:spanCount="2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
