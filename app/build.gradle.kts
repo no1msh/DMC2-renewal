@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dmc2"
+    namespace = "com.monthlycoding.dmc2"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.dmc2"
+        applicationId = "com.monthlycoding.dmc2"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
@@ -57,5 +57,4 @@ dependencies {
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-
 }
