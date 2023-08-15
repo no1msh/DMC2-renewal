@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white01_F3F4F7"
-        android:padding="28dp"
         tools:context=".presenter.main.MainActivity">
 
         <TextView
             android:id="@+id/tv_main_introduce1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
             android:text="@string/main_introduce1"
             android:textColor="@color/blue01_264790"
             android:textSize="20sp"
@@ -36,18 +37,145 @@
             app:layout_constraintStart_toStartOf="@+id/tv_main_introduce1"
             app:layout_constraintTop_toBottomOf="@+id/tv_main_introduce1" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="40dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_marginTop="30dp"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_introduce2"
-            tools:listitem="@layout/item_main_list"
-            app:spanCount="2" />
+            app:layout_constraintTop_toBottomOf="@id/tv_main_introduce2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="18dp">
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_food_recommend"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="학교 주변 맛집 모음!"
+                    app:categoryIcon="@drawable/ic_launcher_background"
+                    app:categoryTitle="음식추천"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_main_who_will_pick_up_the_bill"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_who_will_pick_up_the_bill"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="오늘은 누가 낼래?"
+                    app:categoryIcon="@drawable/ic_launcher_background"
+                    app:categoryTitle="밥값내기"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/cv_main_food_recommend"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_card_news"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="꿀팁, 놀거리 카드뉴스"
+                    app:categoryIcon="@drawable/ic_launcher_background"
+                    app:categoryTitle="카드뉴스"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_main_school_food"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_main_food_recommend" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_school_food"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="학식 정보를 한눈에!"
+                    app:categoryTitle="학식"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/cv_main_card_news"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_main_who_will_pick_up_the_bill" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_school_around_map"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="학교 주변의 모든 것"
+                    app:categoryTitle="학교 주변 탐방 지도"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_main_card_news" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_inquire"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="불편사항 및 문의사항 \n접수"
+                    app:categoryTitle="문의하기"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_main_community"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/cv_main_community"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_main_school_around_map" />
+
+                <com.example.dmc2.custom.CategoryView
+                    android:id="@+id/cv_main_community"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_main_item"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    app:categoryDescription="취업, 학점고민소\n(추후 오픈)"
+                    app:categoryTitle="커뮤니티"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/cv_main_inquire"
+                    app:layout_constraintTop_toTopOf="@+id/cv_main_inquire" />
+
+                <ImageView
+                    android:id="@+id/iv_main_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_main_inquire"
+                    tools:layout_editor_absoluteX="18dp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
