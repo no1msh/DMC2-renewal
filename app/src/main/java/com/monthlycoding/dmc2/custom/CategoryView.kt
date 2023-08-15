@@ -1,4 +1,4 @@
-package com.example.dmc2.custom
+package com.monthlycoding.dmc2.custom
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.dmc2.R
-import com.example.dmc2.databinding.ItemMainListBinding
+import com.monthlycoding.dmc2.R
+import com.monthlycoding.dmc2.databinding.ItemMainListBinding
 
 class CategoryView @JvmOverloads constructor(
     context: Context,

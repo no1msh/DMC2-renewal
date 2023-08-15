@@ -5,13 +5,16 @@
 
     <data>
 
+        <variable
+            name="clickListener"
+            type="com.monthlycoding.dmc2.presenter.main.MainClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white01_F3F4F7"
-        tools:context=".presenter.main.MainActivity">
+        tools:context="com.monthlycoding.dmc2.presenter.main.MainActivity">
 
         <TextView
             android:id="@+id/tv_main_introduce1"
@@ -53,7 +56,7 @@
                 android:clipToPadding="false"
                 android:padding="18dp">
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_food_recommend"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -61,6 +64,7 @@
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onFoodRecommendClick()}"
                     app:categoryDescription="학교 주변 맛집 모음!"
                     app:categoryIcon="@drawable/ic_launcher_background"
                     app:categoryTitle="음식추천"
@@ -70,13 +74,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_who_will_pick_up_the_bill"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onWhoWillPayClick()}"
                     app:categoryDescription="오늘은 누가 낼래?"
                     app:categoryIcon="@drawable/ic_launcher_background"
                     app:categoryTitle="밥값내기"
@@ -85,7 +90,7 @@
                     app:layout_constraintStart_toEndOf="@+id/cv_main_food_recommend"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_card_news"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -94,6 +99,7 @@
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onCardNewsClick()}"
                     app:categoryDescription="꿀팁, 놀거리 카드뉴스"
                     app:categoryIcon="@drawable/ic_launcher_background"
                     app:categoryTitle="카드뉴스"
@@ -102,7 +108,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cv_main_food_recommend" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_school_food"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -110,6 +116,7 @@
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onSchoolFoodClick()}"
                     app:categoryDescription="학식 정보를 한눈에!"
                     app:categoryTitle="학식"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +124,7 @@
                     app:layout_constraintStart_toEndOf="@+id/cv_main_card_news"
                     app:layout_constraintTop_toBottomOf="@+id/cv_main_who_will_pick_up_the_bill" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_school_around_map"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -125,13 +132,14 @@
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onSchoolAroundMapClick()}"
                     app:categoryDescription="학교 주변의 모든 것"
                     app:categoryTitle="학교 주변 탐방 지도"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cv_main_card_news" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_inquire"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -140,6 +148,7 @@
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onInquireClick()}"
                     app:categoryDescription="불편사항 및 문의사항 \n접수"
                     app:categoryTitle="문의하기"
                     app:layout_constraintEnd_toStartOf="@+id/cv_main_community"
@@ -148,13 +157,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cv_main_school_around_map" />
 
-                <com.example.dmc2.custom.CategoryView
+                <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_community"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:background="@drawable/bg_main_item"
                     android:clickable="true"
                     android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onCommunityClick()}"
                     app:categoryDescription="취업, 학점고민소\n(추후 오픈)"
                     app:categoryTitle="커뮤니티"
                     app:layout_constraintEnd_toEndOf="parent"

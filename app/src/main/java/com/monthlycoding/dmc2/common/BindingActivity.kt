@@ -1,4 +1,4 @@
-package com.example.dmc2.common
+package com.monthlycoding.dmc2.common
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
