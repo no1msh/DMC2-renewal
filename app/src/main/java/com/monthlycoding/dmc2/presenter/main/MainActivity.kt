@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
+import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 
 class MainActivity :
     BindingActivity<ActivityMainBinding>(R.layout.activity_main),
@@ -32,7 +33,7 @@ class MainActivity :
     }
 
     override fun onSchoolFoodClick() {
-        // 학식 인텐트
+        startActivity(SchoolFoodActivity.getIntent(this))
     }
 
     override fun onSchoolAroundMapClick() {
