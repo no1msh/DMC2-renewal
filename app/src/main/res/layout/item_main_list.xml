@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="10dp">
+        android:paddingVertical="8dp">
 
         <TextView
             android:id="@+id/tv_item_main_title"
@@ -43,7 +43,7 @@
             android:adjustViewBounds="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_max="50dp"
+
             tools:src="@drawable/ic_launcher_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

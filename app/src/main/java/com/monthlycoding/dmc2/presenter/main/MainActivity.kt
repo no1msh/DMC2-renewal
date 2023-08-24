@@ -22,9 +22,8 @@ class MainActivity :
         showSnackBar(binding.cvMainFoodRecommend, "준비중인 기능입니다")
     }
 
-    override fun onWhoWillPayClick() {
-        // 복불복 화면으로 이동
-        showSnackBar(binding.cvMainWhoWillPickUpTheBill, "준비중인 기능입니다")
+    override fun onHitAndMissGameClick() {
+        showSnackBar(binding.cvMainHitAndMissGame, "준비중인 기능입니다")
     }
 
     override fun onCardNewsClick() {
