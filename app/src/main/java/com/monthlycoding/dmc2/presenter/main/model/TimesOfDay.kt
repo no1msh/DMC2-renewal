@@ -14,8 +14,12 @@ enum class TimesOfDay(@ArrayRes val stringsId: Int) {
     DAWN(R.array.dawn),
     ;
 
-    fun getGreetings(context: Context): String =
-        context.resources.getStringArray(this.stringsId).random()
+    fun getGreetings(context: Context): String {
+        val greetings = context.resources.run {
+            getStringArray(R.array.common) + getStringArray(this@TimesOfDay.stringsId)
+        }
+        return greetings.random()
+    }
 
     companion object {
         fun of(time: Time): TimesOfDay = when (time) {
