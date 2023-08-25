@@ -2,6 +2,7 @@ package com.monthlycoding.dmc2.presenter.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
@@ -11,10 +12,21 @@ import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 class MainActivity :
     BindingActivity<ActivityMainBinding>(R.layout.activity_main),
     MainClickListener {
+
+    private val mainViewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.clickListener = this
+        mainViewModel.initGreetings()
+        observeGreetingsText()
+    }
+
+    private fun observeGreetingsText() {
+        mainViewModel.greetings.observe(this) {
+            binding.tvMainGreetings.text = it.getGreetings(this)
+        }
     }
 
     override fun onFoodRecommendClick() {
@@ -22,9 +34,8 @@ class MainActivity :
         showSnackBar(binding.cvMainFoodRecommend, "준비중인 기능입니다")
     }
 
-    override fun onWhoWillPayClick() {
-        // 복불복 화면으로 이동
-        showSnackBar(binding.cvMainWhoWillPickUpTheBill, "준비중인 기능입니다")
+    override fun onHitAndMissGameClick() {
+        showSnackBar(binding.cvMainHitAndMissGame, "준비중인 기능입니다")
     }
 
     override fun onCardNewsClick() {
