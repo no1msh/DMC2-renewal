@@ -5,4 +5,9 @@
         <attr name="categoryDescription" format="reference|string" />
         <attr name="categoryIcon" format="reference|integer" />
     </declare-styleable>
+
+    <declare-styleable name="CuisineView">
+        <attr name="cuisineTitle" format="reference|string"/>
+        <attr name="cuisineIcon" format="reference|integer" />
+    </declare-styleable>
 </resources>
