@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">DMC2</string>
-    <string name="main_introduce1">DMC에서 한눈에 보다.</string>
-    <string name="main_introduce2">오늘도 반갑습니다!</string>
+    <string name="toolbar_back_text">뒤로가기</string>
+
+    <!-- Main -->
+    <string name="main_introduce">DMC에서 한눈에 보다.</string>
 
     <!-- Cuisine -->
     <string name="cuisine_title_id0">한식</string>
@@ -20,4 +22,5 @@
     <!-- food_recommend -->
     <string name="food_recommend_main_button_text">확인</string>
     <string name="food_recommend_total_cuisine_view_title">전체</string>
+    <string name="food_recommend_title">오늘은 어떤 걸 먹을까?</string>
 </resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presenter.foodrecommend.FoodRecommendActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_food_recommend_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white01_F3F4F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="음식추천"
+            app:titleCentered="true"
+            app:titleTextColor="@color/blue01_264790" />
+
+        <TextView
+            android:id="@+id/tv_food_recommend_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/food_recommend_title"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_food_recommend_toolbar" />
+
+        <GridLayout
+            android:id="@+id/gl_food_recommend_cuisine_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:columnCount="3"
+            android:orientation="vertical"
+            android:rowCount="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_food_recommend_title" />
+
+        <TextView
+            android:id="@+id/tv_food_recommend_button_main"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/bg_button_radius_10"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/food_recommend_main_button_text"
+            android:textSize="18sp"
+            app:isEnabled="@{viewModel.isEnabledDoneButton}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

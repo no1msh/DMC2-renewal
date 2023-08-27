@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.databinding.ViewCuisineBinding
 
@@ -22,8 +21,9 @@ class CuisineView @JvmOverloads constructor(
         ViewCuisineBinding.inflate(LayoutInflater.from(context), this, true)
     }
     val title: TextView by lazy { binding.tvCuisineTitle }
-
     private val icon: ImageView by lazy { binding.ivCuisineIcon }
+    var categoryId: Int = TOTAL_CATEGORY_ID
+        private set
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.CuisineView, 0, 0).apply {
@@ -34,19 +34,6 @@ class CuisineView @JvmOverloads constructor(
                 )
             }.also { recycle() }
         }
-
-        this.setOnClickListener {
-            this.isSelected = !this.isSelected
-            changeCuisineViewTitleTextColor()
-        }
-    }
-
-    private fun changeCuisineViewTitleTextColor() {
-        if (this.isSelected) {
-            binding.tvCuisineTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
-            return
-        }
-        binding.tvCuisineTitle.setTextColor(ContextCompat.getColor(context, R.color.black))
     }
 
     fun setTitle(text: String) {
@@ -59,5 +46,13 @@ class CuisineView @JvmOverloads constructor(
 
     fun setIcon(@DrawableRes iconRes: Int) {
         icon.setImageResource(iconRes)
+    }
+
+    fun setCategoryId(id: Int) {
+        categoryId = id
+    }
+
+    companion object {
+        const val TOTAL_CATEGORY_ID = Int.MIN_VALUE
     }
 }

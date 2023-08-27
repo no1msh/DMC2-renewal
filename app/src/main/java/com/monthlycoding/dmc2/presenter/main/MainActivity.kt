@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
+import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 
 class MainActivity :
@@ -30,8 +31,7 @@ class MainActivity :
     }
 
     override fun onFoodRecommendClick() {
-        // 음식 추천 화면으로 이동
-        showSnackBar(binding.cvMainFoodRecommend, "준비중인 기능입니다")
+        startActivity(FoodRecommendActivity.getIntent(this))
     }
 
     override fun onHitAndMissGameClick() {
