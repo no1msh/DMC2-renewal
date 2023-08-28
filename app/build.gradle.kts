@@ -1,7 +1,10 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    kotlin("plugin.serialization") version "1.8.0"
 }
 
 android {
@@ -16,6 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "DMC2_BASE_URL", getApiKey("BASE_URL"))
     }
 
     buildTypes {
@@ -37,6 +41,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        buildConfig = true
     }
 }
 
@@ -76,4 +81,8 @@ dependencies {
 
     // coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+}
+
+fun getApiKey(propertyKey: String): String {
+    return gradleLocalProperties(rootDir).getProperty(propertyKey)
 }
