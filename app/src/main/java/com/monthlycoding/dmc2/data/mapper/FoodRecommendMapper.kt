@@ -13,4 +13,5 @@ fun FoodRecommendDto.toDomain() = FoodRecommend(
     operationHours,
     storeId,
     storeName,
+    requiredTime,
 )

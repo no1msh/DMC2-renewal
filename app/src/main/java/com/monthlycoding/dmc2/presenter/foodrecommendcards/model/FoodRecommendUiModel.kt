@@ -1,6 +1,6 @@
-package com.monthlycoding.domain.model
+package com.monthlycoding.dmc2.presenter.foodrecommendcards.model
 
-data class FoodRecommend(
+data class FoodRecommendUiModel(
     val categoryId: Int,
     val address: String,
     val closedDays: String,

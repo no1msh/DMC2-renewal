@@ -22,5 +22,7 @@ data class FoodRecommendDto(
     @SerialName("store_id")
     val storeId: Int,
     @SerialName("store_name")
-    val storeName: String
+    val storeName: String,
+    @SerialName("required_time")
+    val requiredTime: String,
 )
