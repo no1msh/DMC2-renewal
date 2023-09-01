@@ -8,6 +8,14 @@
         </shape>
     </item>
 
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp" android:color="@color/blue01_264790" />
+            <solid android:color="@color/white01_F3F4F7" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <stroke android:width="2dp" android:color="@color/blue01_264790" />

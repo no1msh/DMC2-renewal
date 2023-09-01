@@ -40,17 +40,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_food_recommend_toolbar" />
 
-        <GridLayout
-            android:id="@+id/gl_food_recommend_cuisine_list"
+        <TextView
+            android:id="@+id/tv_food_recommend_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:columnCount="3"
-            android:orientation="vertical"
-            android:rowCount="4"
+            android:text="@string/food_recommend_description"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_food_recommend_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_food_recommend_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_food_recommend_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_food_recommend_button_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_food_recommend_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_food_recommend_description">
+
+            <GridLayout
+                android:id="@+id/gl_food_recommend_cuisine_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:columnCount="3"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:rowCount="4" />
+        </ScrollView>
+
 
         <TextView
             android:id="@+id/tv_food_recommend_button_main"
@@ -61,6 +80,7 @@
             android:clickable="true"
             android:gravity="center"
             android:text="@string/food_recommend_main_button_text"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:isEnabled="@{viewModel.isEnabledDoneButton}"
             app:layout_constraintBottom_toBottomOf="parent"

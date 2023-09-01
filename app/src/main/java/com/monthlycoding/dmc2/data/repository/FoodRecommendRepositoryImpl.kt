@@ -5,7 +5,7 @@ import com.monthlycoding.dmc2.data.mapper.toDomain
 import com.monthlycoding.domain.model.FoodRecommend
 import com.monthlycoding.domain.repository.FoodRecommendRepository
 
-class FoodRecommendRepository(
+class FoodRecommendRepositoryImpl(
     private val foodRecommendDataSource: FoodRecommendDataSource
 ) : FoodRecommendRepository {
     override suspend fun getFoodRecommends(categoryIds: List<Int>): List<FoodRecommend> {
