@@ -1,12 +1,12 @@
 package com.monthlycoding.dmc2.presenter.main
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
-import com.google.android.material.snackbar.Snackbar
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
+import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 
 class MainActivity :
@@ -30,17 +30,16 @@ class MainActivity :
     }
 
     override fun onFoodRecommendClick() {
-        // 음식 추천 화면으로 이동
-        showSnackBar(binding.cvMainFoodRecommend, "준비중인 기능입니다")
+        startActivity(FoodRecommendActivity.getIntent(this))
     }
 
     override fun onHitAndMissGameClick() {
-        showSnackBar(binding.cvMainHitAndMissGame, "준비중인 기능입니다")
+        showDefaultSnackBar(binding.cvMainHitAndMissGame, "준비중인 기능입니다")
     }
 
     override fun onCardNewsClick() {
         // 카드뉴스 화면으로 이동
-        showSnackBar(binding.cvMainCardNews, "준비중인 기능입니다")
+        showDefaultSnackBar(binding.cvMainCardNews, "준비중인 기능입니다")
     }
 
     override fun onSchoolFoodClick() {
@@ -49,7 +48,7 @@ class MainActivity :
 
     override fun onSchoolAroundMapClick() {
         // 지도 화면으로 이동
-        showSnackBar(binding.cvMainSchoolAroundMap, "준비중인 기능입니다")
+        showDefaultSnackBar(binding.cvMainSchoolAroundMap, "준비중인 기능입니다")
     }
 
     override fun onInquireClick() {
@@ -58,10 +57,6 @@ class MainActivity :
 
     override fun onCommunityClick() {
         // 커뮤니티 화면으로 이동
-        showSnackBar(binding.cvMainCommunity, "준비중인 기능입니다")
-    }
-
-    private fun showSnackBar(view: View, text: String) {
-        Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+        showDefaultSnackBar(binding.cvMainCommunity, "준비중인 기능입니다")
     }
 }

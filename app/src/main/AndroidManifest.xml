@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presenter.foodRecommendDetail.FoodRecommendDetailWebActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presenter.foodrecommendcards.FoodRecommendCardsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presenter.foodrecommend.FoodRecommendActivity"
+            android:exported="false" />
+        <activity
             android:name=".presenter.schoolfood.SchoolFoodActivity"
             android:exported="false" />
         <activity

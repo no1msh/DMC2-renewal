@@ -17,12 +17,12 @@
         tools:context="com.monthlycoding.dmc2.presenter.main.MainActivity">
 
         <TextView
-            android:id="@+id/tv_main_introduce1"
+            android:id="@+id/tv_main_introduce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
-            android:text="@string/main_introduce1"
+            android:text="@string/main_introduce"
             android:textColor="@color/blue01_264790"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -38,8 +38,8 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_main_introduce1"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_introduce1" />
+            app:layout_constraintStart_toStartOf="@id/tv_main_introduce"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_introduce" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                     app:categoryDescription="학교 주변 맛집 모음!"
                     app:categoryIcon="@drawable/ic_food_recommend"
                     app:categoryTitle="음식추천"
-                    app:layout_constraintEnd_toStartOf="@+id/cv_main_hit_and_miss_game"
+                    app:layout_constraintEnd_toStartOf="@id/cv_main_hit_and_miss_game"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
                     app:categoryTitle="밥값내기"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cv_main_food_recommend"
+                    app:layout_constraintStart_toEndOf="@id/cv_main_food_recommend"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.monthlycoding.dmc2.custom.CategoryView
@@ -104,10 +104,10 @@
                     app:categoryDescription="꿀팁, 놀거리 카드뉴스"
                     app:categoryIcon="@drawable/ic_card_news"
                     app:categoryTitle="카드뉴스"
-                    app:layout_constraintEnd_toStartOf="@+id/cv_main_school_food"
+                    app:layout_constraintEnd_toStartOf="@id/cv_main_school_food"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_main_food_recommend" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_food_recommend" />
 
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_school_food"
@@ -123,8 +123,8 @@
                     app:categoryTitle="학식"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cv_main_card_news"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_main_hit_and_miss_game" />
+                    app:layout_constraintStart_toEndOf="@id/cv_main_card_news"
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_hit_and_miss_game" />
 
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_school_around_map"
@@ -140,7 +140,7 @@
                     app:categoryTitle="학교 주변 탐방 지도"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_main_card_news" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_card_news" />
 
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_inquire"
@@ -154,11 +154,11 @@
                     android:onClick="@{() -> clickListener.onInquireClick()}"
                     app:categoryIcon="@drawable/ic_inquire"
                     app:categoryTitle="문의하기"
-                    app:layout_constraintEnd_toStartOf="@+id/cv_main_community"
+                    app:layout_constraintEnd_toStartOf="@id/cv_main_community"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cv_main_community"
+                    app:layout_constraintStart_toEndOf="@id/cv_main_community"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_main_school_around_map" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_school_around_map" />
 
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_community"
@@ -172,8 +172,8 @@
                     app:categoryTitle="커뮤니티"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cv_main_inquire"
-                    app:layout_constraintTop_toTopOf="@+id/cv_main_inquire" />
+                    app:layout_constraintStart_toEndOf="@id/cv_main_inquire"
+                    app:layout_constraintTop_toTopOf="@id/cv_main_inquire" />
 
                 <ImageView
                     android:id="@+id/iv_main_ad"
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:src="@mipmap/ic_launcher"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_main_inquire"
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_inquire"
                     tools:layout_editor_absoluteX="18dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

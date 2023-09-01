@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presenter.foodRecommendDetail.FoodRecommendDetailWebActivity">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_food_recommend_detail_web_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white01_F3F4F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleCentered="true"
+            app:titleTextColor="@color/blue01_264790" />
+
+        <WebView
+            android:id="@+id/wv_food_recommend_detail_web_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_food_recommend_detail_web_toolbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
