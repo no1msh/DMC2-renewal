@@ -22,5 +22,11 @@
     <!-- food_recommend -->
     <string name="food_recommend_main_button_text">확인</string>
     <string name="food_recommend_total_cuisine_view_title">전체</string>
-    <string name="food_recommend_title">오늘은 어떤 걸 먹을까?</string>
+    <string name="food_recommend_title">오늘은 어떤 게 좋을까?</string>
+    <string name="food_recommend_description">💡원하는 종류를 선택해 주세요.</string>
+    <string name="item_food_recommend_prefix">아무래도\n오늘은</string>
+    <string name="item_food_recommend_card_button_detail">자세히 보기</string>
+    <string name="item_food_recommend_card_button_map">지도</string>
+
+    <string name="food_recommend_detail_web_exception_finish_message">예기치 못한 상황으로 종료되었습니다</string>
 </resources>
