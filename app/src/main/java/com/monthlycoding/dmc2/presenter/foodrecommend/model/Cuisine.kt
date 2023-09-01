@@ -21,4 +21,21 @@ enum class Cuisine(
     MART(R.string.cuisine_title_id9, R.drawable.ic_cuisine_mart, 9),
     BAR(R.string.cuisine_title_id10, R.drawable.ic_cuisine_bar, 10),
     ;
+
+    companion object {
+        fun findById(id: Int): Cuisine = when (id) {
+            0 -> KOREAN
+            1 -> CHINESE
+            2 -> BUNSIK
+            3 -> WESTERN
+            4 -> JAPANESE
+            5 -> FAST_FOOD
+            6 -> MEAT
+            7 -> CHICKEN
+            8 -> CAFE
+            9 -> MART
+            10 -> BAR
+            else -> throw IllegalArgumentException("[잘못된 값: $id] 유효하지 않은 id 값입니다.")
+        }
+    }
 }
