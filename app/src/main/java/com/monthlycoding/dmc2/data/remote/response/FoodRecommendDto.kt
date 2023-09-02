@@ -5,24 +5,24 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class FoodRecommendDto(
-    @SerialName("category_id")
+    @SerialName("categoryId")
     val categoryId: Int,
     @SerialName("address")
     val address: String,
-    @SerialName("closed_days")
+    @SerialName("closedDays")
     val closedDays: String,
     @SerialName("latitude")
     val latitude: String,
     @SerialName("longitude")
     val longitude: String,
-    @SerialName("naver_link")
+    @SerialName("naverLink")
     val naverLink: String,
-    @SerialName("operation_hours")
+    @SerialName("operationHours")
     val operationHours: String,
-    @SerialName("store_id")
+    @SerialName("storeId")
     val storeId: Int,
-    @SerialName("store_name")
+    @SerialName("storeName")
     val storeName: String,
-    @SerialName("required_time")
+    @SerialName("requiredTime")
     val requiredTime: String,
 )
