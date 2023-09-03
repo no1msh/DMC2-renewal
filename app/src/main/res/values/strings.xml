@@ -27,6 +27,10 @@
     <string name="item_food_recommend_prefix">아무래도\n오늘은</string>
     <string name="item_food_recommend_card_button_detail">자세히 보기</string>
     <string name="item_food_recommend_card_button_map">지도</string>
-
     <string name="food_recommend_detail_web_exception_finish_message">예기치 못한 상황으로 종료되었습니다</string>
+
+    <!-- hit_and_miss -->
+    <string name="hit_counter_title">오늘은 누가 걸릴까?</string>
+    <string name="hit_counter_description">걸릴 사람 수를 고르자</string>
+    <string name="hit_counter_button_done">시작하기</string>
 </resources>
