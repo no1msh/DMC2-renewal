@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presenter.hitandmiss.hitcounter.HitCounterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presenter.hitandmiss.HitAndMissActivity"
+            android:exported="false" />
+        <activity
             android:name=".presenter.foodRecommendDetail.FoodRecommendDetailWebActivity"
             android:exported="false" />
         <activity
