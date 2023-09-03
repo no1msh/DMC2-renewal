@@ -33,4 +33,7 @@
     <string name="hit_counter_title">오늘은 누가 걸릴까?</string>
     <string name="hit_counter_description">걸릴 사람 수를 고르자</string>
     <string name="hit_counter_button_done">시작하기</string>
+    <string name="hit_and_miss_title">각자 한 장씩 카드를 뒤집자!</string>
+    <string name="hit_and_miss_card_hit">오늘은\n너야.</string>
+    <string name="hit_and_miss_card_miss">통과</string>
 </resources>
