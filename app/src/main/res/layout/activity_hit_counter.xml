@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.count.toString()}"
             android:textColor="@color/blue01_264790"
-            android:textSize="50sp"
+            android:textSize="100sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_hit_counter_button_increase"
             app:layout_constraintHorizontal_bias="0.5"
