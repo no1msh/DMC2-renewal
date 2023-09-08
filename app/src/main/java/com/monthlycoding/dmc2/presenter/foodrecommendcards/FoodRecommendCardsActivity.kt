@@ -7,10 +7,12 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
-import com.monthlycoding.dmc2.common.showDefaultToast
+import com.monthlycoding.dmc2.data.mapper.toCuisineMarker
 import com.monthlycoding.dmc2.databinding.ActivityFoodRecommendCardsBinding
 import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailWebActivity
 import com.monthlycoding.dmc2.presenter.foodrecommendcards.adapter.FoodRecommendAdapter
+import com.monthlycoding.dmc2.presenter.foodrecommendcards.model.FoodRecommendUiModel
+import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
 
 class FoodRecommendCardsActivity :
     BindingActivity<ActivityFoodRecommendCardsBinding>(R.layout.activity_food_recommend_cards),
@@ -63,8 +65,8 @@ class FoodRecommendCardsActivity :
         startActivity(FoodRecommendDetailWebActivity.getIntent(this, url, appBarTitle))
     }
 
-    override fun onMapClick() {
-        showDefaultToast(this, "준비중입니다.")
+    override fun onMapClick(foodRecommend: FoodRecommendUiModel) {
+        startActivity(SchoolAroundMapActivity.getIntent(this, foodRecommend.toCuisineMarker()))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

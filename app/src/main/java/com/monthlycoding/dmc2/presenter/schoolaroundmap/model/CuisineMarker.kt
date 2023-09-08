@@ -1,8 +1,11 @@
 package com.monthlycoding.dmc2.presenter.schoolaroundmap.model
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import com.naver.maps.geometry.LatLng
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class CuisineMarker(
     val storeId: Int,
     val latLng: LatLng,
@@ -13,4 +16,4 @@ data class CuisineMarker(
     val naverLink: String,
     val operationHours: String,
     val requiredTime: String,
-)
+) : Parcelable

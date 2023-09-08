@@ -135,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:onClick="@{() -> onCardButtonClickListener.onMapClick()}"
+            android:onClick="@{() -> onCardButtonClickListener.onMapClick(foodRecommend)}"
             android:padding="10dp"
             android:text="@string/item_food_recommend_card_button_map"
             android:textColor="@color/blue01_264790"
