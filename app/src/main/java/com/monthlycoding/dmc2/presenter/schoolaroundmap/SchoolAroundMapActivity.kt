@@ -2,6 +2,7 @@ package com.monthlycoding.dmc2.presenter.schoolaroundmap
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
@@ -108,6 +109,33 @@ class SchoolAroundMapActivity :
             moveCameraToMaker(it as Marker)
             return@setOnClickListener true
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val cuisineMarker =
+                intent.getParcelableExtra(KEY_CUISINE_MARKER, CuisineMarker::class.java) ?: return
+            initNewCuisineMarker(cuisineMarker)
+        } else {
+            val cuisineMarker =
+                intent.getParcelableExtra<CuisineMarker>(KEY_CUISINE_MARKER) ?: return
+            initNewCuisineMarker(cuisineMarker)
+        }
+    }
+
+    private fun initNewCuisineMarker(cuisineMarker: CuisineMarker) {
+        Marker().apply {
+            position = cuisineMarker.latLng
+            map = naverMap
+            captionText = cuisineMarker.storeName
+            icon = OverlayImage.fromResource(cuisineMarker.icon)
+            width = 70
+            height = 70
+            setOnClickListener {
+                moveCameraToMaker(it as Marker)
+                showMarkerDetail(cuisineMarker)
+                return@setOnClickListener true
+            }
+        }
+        naverMap.moveCamera(CameraUpdate.scrollTo(cuisineMarker.latLng))
     }
 
     private fun moveCameraToMaker(marker: Marker) {
@@ -138,11 +166,16 @@ class SchoolAroundMapActivity :
     companion object {
         private const val DEFAULT_DIALOG_WIDTH = 340
         private const val DEFAULT_DIALOG_HEIGHT = 600
-
+        private const val KEY_CUISINE_MARKER = "KEY_CUISINE_MARKER"
         private val SCHOOL_LAT_LNG = LatLng(37.501015, 126.866547)
         private const val INIT_ZOOM_LEVEL = 16.0
 
         fun getIntent(context: Context): Intent =
             Intent(context, SchoolAroundMapActivity::class.java)
+
+        fun getIntent(context: Context, cuisineMarker: CuisineMarker): Intent =
+            Intent(context, SchoolAroundMapActivity::class.java).apply {
+                putExtra(KEY_CUISINE_MARKER, cuisineMarker)
+            }
     }
 }
