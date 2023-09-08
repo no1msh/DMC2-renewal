@@ -6,6 +6,6 @@ interface MainClickListener {
     fun onCardNewsClick()
     fun onSchoolFoodClick()
     fun onSchoolAroundMapClick()
-    fun onInquireClick()
+    fun onInquiryClick()
     fun onCommunityClick()
 }
