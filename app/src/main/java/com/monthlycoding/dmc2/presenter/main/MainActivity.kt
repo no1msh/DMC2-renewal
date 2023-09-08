@@ -8,6 +8,7 @@ import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
 import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
 import com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterActivity
+import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 
 class MainActivity :
@@ -49,7 +50,7 @@ class MainActivity :
 
     override fun onSchoolAroundMapClick() {
         // 지도 화면으로 이동
-        showDefaultSnackBar(binding.cvMainSchoolAroundMap, "준비중인 기능입니다")
+        startActivity(SchoolAroundMapActivity.getIntent(this))
     }
 
     override fun onInquireClick() {

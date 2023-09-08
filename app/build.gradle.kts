@@ -1,10 +1,16 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     kotlin("plugin.serialization") version "1.8.0"
+}
+
+val properties = Properties().apply {
+    load(FileInputStream(rootProject.file("local.properties")))
 }
 
 android {
@@ -20,6 +26,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "DMC2_BASE_URL", getApiKey("BASE_URL"))
+        manifestPlaceholders["NAVER_MAP_CLIENT_ID"] = properties["NAVER_MAP_CLIENT_ID"] as String
     }
 
     buildTypes {
@@ -83,6 +90,9 @@ dependencies {
 
     // coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // naver map
+    implementation("com.naver.maps:map-sdk:3.17.0")
 }
 
 fun getApiKey(propertyKey: String): String {
