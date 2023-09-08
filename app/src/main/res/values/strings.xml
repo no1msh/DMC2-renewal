@@ -36,7 +36,7 @@
     <string name="hit_and_miss_title">각자 한 장씩 카드를 뒤집자!</string>
     <string name="hit_and_miss_card_hit">오늘은\n너야.</string>
     <string name="hit_and_miss_card_miss">통과</string>
-    
+
     <!-- school_around_map -->
     <string name="menu_filter_title">필터</string>
     <string name="dialog_map_filter_title">카테고리를 골라주세요</string>

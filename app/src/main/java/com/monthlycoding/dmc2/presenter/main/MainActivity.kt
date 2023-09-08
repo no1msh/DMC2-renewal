@@ -8,6 +8,7 @@ import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
 import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
 import com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterActivity
+import com.monthlycoding.dmc2.presenter.inquiry.InquiryActivity
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
 
@@ -49,12 +50,11 @@ class MainActivity :
     }
 
     override fun onSchoolAroundMapClick() {
-        // 지도 화면으로 이동
         startActivity(SchoolAroundMapActivity.getIntent(this))
     }
 
-    override fun onInquireClick() {
-        // 문의하기 웹 뷰 인텐트
+    override fun onInquiryClick() {
+        startActivity(InquiryActivity.getIntent(this))
     }
 
     override fun onCommunityClick() {

@@ -151,7 +151,7 @@
                     android:background="@drawable/bg_main_item_green"
                     android:clickable="true"
                     android:elevation="4dp"
-                    android:onClick="@{() -> clickListener.onInquireClick()}"
+                    android:onClick="@{() -> clickListener.onInquiryClick()}"
                     app:categoryIcon="@drawable/ic_inquire"
                     app:categoryTitle="문의하기"
                     app:layout_constraintEnd_toStartOf="@id/cv_main_community"
