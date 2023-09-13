@@ -6,6 +6,7 @@ import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
+import com.monthlycoding.dmc2.presenter.cardnews.CardNewsActivity
 import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
 import com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterActivity
 import com.monthlycoding.dmc2.presenter.inquiry.InquiryActivity
@@ -41,8 +42,7 @@ class MainActivity :
     }
 
     override fun onCardNewsClick() {
-        // 카드뉴스 화면으로 이동
-        showDefaultSnackBar(binding.cvMainCardNews, "준비중인 기능입니다")
+        startActivity(CardNewsActivity.getIntent(this))
     }
 
     override fun onSchoolFoodClick() {
