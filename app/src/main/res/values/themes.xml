@@ -1,8 +1,8 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.DMC2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.DMC2" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/blue01_264790</item>
     </style>
 
     <style name="Theme.DMC2" parent="Base.Theme.DMC2" />
