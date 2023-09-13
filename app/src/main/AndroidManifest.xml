@@ -45,6 +45,9 @@
             android:name=".presenter.schoolfood.SchoolFoodActivity"
             android:exported="false" />
         <activity
+            android:name=".presenter.cardnews.CardNewsActivity"
+            android:exported="false" />
+        <activity
             android:name=".presenter.main.MainActivity"
             android:exported="true">
             <intent-filter>
