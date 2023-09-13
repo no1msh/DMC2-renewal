@@ -1,5 +1,7 @@
 package com.monthlycoding.dmc2.presenter.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
@@ -60,5 +62,15 @@ class MainActivity :
     override fun onCommunityClick() {
         // 커뮤니티 화면으로 이동
         showDefaultSnackBar(binding.cvMainCommunity, "준비중인 기능입니다")
+    }
+
+    override fun onRecruitClick() {
+        val uri = Uri.parse(RECRUIT_URL)
+        val viewIntent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(viewIntent)
+    }
+
+    companion object {
+        private const val RECRUIT_URL = "https://kangminna.github.io/MonthlyCoding_Web/"
     }
 }

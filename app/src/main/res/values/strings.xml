@@ -51,4 +51,12 @@
     <string name="inquiry_content_text_max_length">500자 이내</string>
     <string name="inquiry_content_hint">문의 내용을 작성해주세요.</string>
     <string name="inquiry_button_done">작성 완료</string>
+
+    <!-- main_ad -->
+    <string name="main_ad_title">DMC를 함께 만들어 가실 분을 찾습니다.</string>
+    <string name="main_ad_content">저희와 함께할 개발자, 혹은 디자이너, 기획자 분들이 계신다면 문의하기를 통해 연락주세요 :)</string>
+    <string name="main_ad_read_more"><u>더보기</u></string>
+
+    <!-- main_copyright -->
+    <string name="main_copyright">ⓒ2023.Monthly Coding all rights Reserved.\nⓒ2022–2023 Cat.LLC Icons by Icons8</string>
 </resources>
