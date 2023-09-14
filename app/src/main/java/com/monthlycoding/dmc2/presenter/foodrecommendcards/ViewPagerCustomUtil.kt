@@ -1,6 +1,7 @@
 package com.monthlycoding.dmc2.presenter.foodrecommendcards
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.OVER_SCROLL_NEVER
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -64,7 +65,8 @@ class ViewPagerCustomUtil(
             pageWidth: Int,
         ) {
             val scaleFactor = max(MIN_SCALE, 1 - abs(position))
-            val verticalMargin = pageHeight * (1 - scaleFactor) / 2
+            val verticalMargin = (pageHeight * (1 - scaleFactor) / 2)
+            Log.d("bandal", "$verticalMargin")
             val horizontalMargin = pageWidth * (1 - scaleFactor) / 2
 
             translationX =

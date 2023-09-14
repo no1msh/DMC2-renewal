@@ -27,6 +27,7 @@
     <string name="item_food_recommend_prefix">아무래도\n오늘은</string>
     <string name="item_food_recommend_card_button_detail">자세히 보기</string>
     <string name="item_food_recommend_card_button_map">지도</string>
+    <string name="item_food_recommend_card_require_time">8호관 기준 : 도보 <b>%s</b></string>
     <string name="food_recommend_detail_web_exception_finish_message">예기치 못한 상황으로 종료되었습니다</string>
 
     <!-- hit_and_miss -->
