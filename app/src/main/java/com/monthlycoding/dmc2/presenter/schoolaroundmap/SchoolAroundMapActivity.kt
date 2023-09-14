@@ -8,6 +8,7 @@ import android.view.Menu
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.databinding.ActivitySchoolAroundMapBinding
 import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailWebActivity
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker
@@ -109,6 +110,10 @@ class SchoolAroundMapActivity :
         marker.captionText = "8호관"
         marker.setOnClickListener {
             moveCameraToMaker(it as Marker)
+            showDefaultToast(
+                this@SchoolAroundMapActivity,
+                getString(R.string.marker_school_description)
+            )
             return@setOnClickListener true
         }
 
