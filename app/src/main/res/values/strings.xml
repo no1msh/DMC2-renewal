@@ -41,6 +41,9 @@
     <string name="menu_filter_title">필터</string>
     <string name="dialog_map_filter_title">카테고리를 골라주세요</string>
     <string name="dialog_map_filter_button_done">선택완료</string>
+    <string name="marker_detail_operation_hours">운영시간: %s</string>
+    <string name="marker_detail_required_time">소요시간: 8호관 기준 도보로부터 <b>%s</b></string>
+    <string name="marker_detail_link_naver_detail"><u>자세히 보기</u></string>
 
     <!-- inquiry -->
     <string name="inquiry_introduce">안녕하세요\nDMC 개발자입니다.</string>

@@ -8,21 +8,24 @@
         <variable
             name="marker"
             type="com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker" />
+
+        <variable
+            name="markerDetailClickListener"
+            type="com.monthlycoding.dmc2.presenter.schoolaroundmap.MarkerDetailClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/tv_marker_detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:text="@{marker.storeName}"
-            app:layout_constraintBottom_toTopOf="@+id/tv_marker_detail_operation_hours"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
@@ -32,14 +35,34 @@
             android:id="@+id/tv_marker_detail_operation_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="@{marker.operationHours}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="4dp"
+            android:text="@{@string/marker_detail_operation_hours(marker.operationHours)}"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_marker_detail_title"
-            tools:text="08:00 ~ 24:00" />
+            tools:text="운영시간: 08:00 ~ 24:00" />
+
+        <TextView
+            android:id="@+id/tv_marker_detail_requiredTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/marker_detail_required_time(marker.requiredTime)}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_marker_detail_operation_hours"
+            app:layout_constraintTop_toBottomOf="@id/tv_marker_detail_operation_hours"
+            tools:text="소요시간: 8호관 기준 도보로부터 8분" />
+
+        <TextView
+            android:id="@+id/tv_marker_detail_link_naver_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{() -> markerDetailClickListener.onDetailClick(marker.naverLink, marker.storeName)}"
+            android:padding="10dp"
+            android:text="@string/marker_detail_link_naver_detail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_marker_detail_requiredTime" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.databinding.ActivitySchoolAroundMapBinding
+import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailWebActivity
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraAnimation
@@ -22,6 +23,7 @@ import com.naver.maps.map.overlay.OverlayImage
 class SchoolAroundMapActivity :
     BindingActivity<ActivitySchoolAroundMapBinding>(R.layout.activity_school_around_map),
     MapFilterDialogClickListener,
+    MarkerDetailClickListener,
     OnMapReadyCallback {
 
     private val schoolAroundMapViewModel: SchoolAroundMapViewModel by viewModels { SchoolAroundMapViewModel.Factory }
@@ -159,8 +161,12 @@ class SchoolAroundMapActivity :
     }
 
     private fun showMarkerDetail(cuisineMarker: CuisineMarker) {
-        val modal = MarkerDetailBottomSheetDialog(cuisineMarker)
-        modal.show(supportFragmentManager, MarkerDetailBottomSheetDialog.TAG)
+        val dialog = MarkerDetailBottomSheetDialog(cuisineMarker, this)
+        dialog.show(supportFragmentManager, MarkerDetailBottomSheetDialog.TAG)
+    }
+
+    override fun onDetailClick(url: String, storeName: String) {
+        startActivity(FoodRecommendDetailWebActivity.getIntent(this, url, storeName))
     }
 
     companion object {
@@ -168,6 +174,7 @@ class SchoolAroundMapActivity :
         private const val DEFAULT_DIALOG_HEIGHT = 600
         private const val KEY_CUISINE_MARKER = "KEY_CUISINE_MARKER"
         private val SCHOOL_LAT_LNG = LatLng(37.501015, 126.866547)
+
         private const val INIT_ZOOM_LEVEL = 16.0
 
         fun getIntent(context: Context): Intent =

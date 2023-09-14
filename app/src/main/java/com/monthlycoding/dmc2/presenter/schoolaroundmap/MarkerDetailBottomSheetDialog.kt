@@ -10,7 +10,10 @@ import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.databinding.DialogMarkerDetailBottomSheetBinding
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker
 
-class MarkerDetailBottomSheetDialog(private val cuisineMarker: CuisineMarker) :
+class MarkerDetailBottomSheetDialog(
+    private val cuisineMarker: CuisineMarker,
+    private val markerDetailClickListener: MarkerDetailClickListener
+) :
     BottomSheetDialogFragment() {
 
     private lateinit var binding: DialogMarkerDetailBottomSheetBinding
@@ -29,6 +32,7 @@ class MarkerDetailBottomSheetDialog(private val cuisineMarker: CuisineMarker) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.marker = cuisineMarker
+        binding.markerDetailClickListener = markerDetailClickListener
     }
 
     companion object {
