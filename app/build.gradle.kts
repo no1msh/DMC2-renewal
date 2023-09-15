@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId = "com.monthlycoding.dmc2"
-        minSdk = 26
+        minSdk = 27
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
