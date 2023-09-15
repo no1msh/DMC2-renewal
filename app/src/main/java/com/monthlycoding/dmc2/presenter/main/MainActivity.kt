@@ -1,5 +1,6 @@
 package com.monthlycoding.dmc2.presenter.main
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -72,5 +73,7 @@ class MainActivity :
 
     companion object {
         private const val RECRUIT_URL = "https://kangminna.github.io/MonthlyCoding_Web/"
+
+        fun getIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 }

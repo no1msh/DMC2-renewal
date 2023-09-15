@@ -21,6 +21,15 @@
             android:value="${NAVER_MAP_CLIENT_ID}" />
 
         <activity
+            android:name=".presenter.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".presenter.inquiry.InquiryActivity"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -59,13 +68,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".presenter.main.MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

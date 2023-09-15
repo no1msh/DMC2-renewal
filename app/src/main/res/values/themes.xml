@@ -3,6 +3,7 @@
     <style name="Base.Theme.DMC2" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/blue01_264790</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Theme.DMC2" parent="Base.Theme.DMC2" />

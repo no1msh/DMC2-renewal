@@ -64,4 +64,7 @@
 
     <!-- main_copyright -->
     <string name="main_copyright">ⓒ2023.Monthly Coding all rights Reserved.\nⓒ2022–2023 Cat.LLC Icons by Icons8</string>
+
+    <!-- splash -->
+    <string name="splash_content"><b>동양미래대학교 학생들</b>을 위한\n<b>학교생활, DMC</b>에서 한 눈에 보다.</string>
 </resources>
