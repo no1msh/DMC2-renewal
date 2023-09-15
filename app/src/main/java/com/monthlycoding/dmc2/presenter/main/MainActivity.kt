@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
-import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
 import com.monthlycoding.dmc2.presenter.cardnews.CardNewsActivity
 import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
@@ -61,8 +60,7 @@ class MainActivity :
     }
 
     override fun onCommunityClick() {
-        // 커뮤니티 화면으로 이동
-        showDefaultSnackBar(binding.cvMainCommunity, "준비중인 기능입니다")
+        PrepareUpdateDialog().show(supportFragmentManager, "prepareForUpdateDialog")
     }
 
     override fun onRecruitClick() {

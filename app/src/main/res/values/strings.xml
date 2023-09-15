@@ -67,4 +67,12 @@
 
     <!-- splash -->
     <string name="splash_content"><b>동양미래대학교 학생들</b>을 위한\n<b>학교생활, DMC</b>에서 한 눈에 보다.</string>
+
+    <!--BASE ERROR-->
+    <string name="error_baseFragment">"[ERROR]Binding no initialization"</string>
+
+    <!-- dialog_prepare_for_update -->
+    <string name="dialog_prepare_for_update_title">DMC 업데이트 중~</string>
+    <string name="dialog_prepare_for_update_content">학교를 대표하는 앱이 되기 위해\n새단장중입니다!</string>
+    <string name="dialog_prepare_for_update_cancel">닫기</string>
 </resources>
