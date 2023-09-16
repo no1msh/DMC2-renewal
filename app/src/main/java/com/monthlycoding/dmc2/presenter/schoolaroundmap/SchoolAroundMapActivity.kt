@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
@@ -20,6 +21,7 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+
 
 class SchoolAroundMapActivity :
     BindingActivity<ActivitySchoolAroundMapBinding>(R.layout.activity_school_around_map),
@@ -65,12 +67,12 @@ class SchoolAroundMapActivity :
 
     private fun showFilterDialog() {
         MapFilterDialog(this, this).apply {
-            val density = resources.displayMetrics.density * 1.2
-            window?.setLayout(
-                (DEFAULT_DIALOG_WIDTH * density).toInt(),
-                (DEFAULT_DIALOG_HEIGHT * density).toInt()
-            )
+            val layoutParams = WindowManager.LayoutParams()
+            layoutParams.copyFrom(this.window?.attributes)
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+            layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
             show()
+            window?.attributes = layoutParams
         }
     }
 
@@ -175,8 +177,6 @@ class SchoolAroundMapActivity :
     }
 
     companion object {
-        private const val DEFAULT_DIALOG_WIDTH = 340
-        private const val DEFAULT_DIALOG_HEIGHT = 600
         private const val KEY_CUISINE_MARKER = "KEY_CUISINE_MARKER"
         private val SCHOOL_LAT_LNG = LatLng(37.501015, 126.866547)
 

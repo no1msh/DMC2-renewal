@@ -42,7 +42,7 @@ class SchoolAroundMapViewModel(
         naverLink = naverLink,
         operationHours = operationHours,
         requiredTime = requiredTime,
-        )
+    )
 
     companion object {
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {

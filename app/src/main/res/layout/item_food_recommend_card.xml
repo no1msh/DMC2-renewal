@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:text="@{cuisine.title}"
-            android:textSize="48sp"
+            android:textSize="42sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/view_item_food_recommend_divider"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +72,7 @@
             android:id="@+id/tv_item_food_recommend_card_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="@{foodRecommend.storeName}"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -126,15 +126,17 @@
             android:id="@+id/tv_item_food_recommend_card_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="16dp"
             android:onClick="@{() -> onCardButtonClickListener.onDetailClick(foodRecommend.naverLink, foodRecommend.storeName)}"
             android:padding="10dp"
             android:text="@string/item_food_recommend_card_button_detail"
             android:textColor="@color/blue01_264790"
             android:textSize="16sp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_food_recommend_card_required_time" />
 
         <TextView
             android:id="@+id/tv_item_food_recommend_card_map"

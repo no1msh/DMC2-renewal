@@ -55,8 +55,10 @@ class MapFilterDialog(
     private fun addTotalCuisineView() {
         val totalCuisine = createStandardCuisineView()
         totalCuisine.setTitle(context.getString(R.string.food_recommend_total_cuisine_view_title))
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
         totalCuisine.setOnClickListener {
             totalCuisine.isSelected = !totalCuisine.isSelected
+            changeTotalCuisineIcon(totalCuisine)
             binding.glMapFilterCuisineList.children
                 .map { it as CuisineView }
                 .forEach { cuisineView ->
@@ -65,6 +67,14 @@ class MapFilterDialog(
                 }
         }
         binding.glMapFilterCuisineList.addView(totalCuisine)
+    }
+
+    private fun changeTotalCuisineIcon(totalCuisine: CuisineView) {
+        if (totalCuisine.isSelected) {
+            totalCuisine.setIcon(R.drawable.ic_app_bg_blue)
+            return
+        }
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
     }
 
     private fun createStandardCuisineView(): CuisineView {

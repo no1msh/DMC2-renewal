@@ -55,8 +55,10 @@ class FoodRecommendActivity :
     private fun addTotalCuisineView() {
         val totalCuisine = createStandardCuisineView()
         totalCuisine.setTitle(getString(R.string.food_recommend_total_cuisine_view_title))
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
         totalCuisine.setOnClickListener {
             totalCuisine.isSelected = !totalCuisine.isSelected
+            changeTotalCuisineIconColor(totalCuisine)
             binding.glFoodRecommendCuisineList.children
                 .map { it as CuisineView }
                 .forEach { cuisineView ->
@@ -66,6 +68,14 @@ class FoodRecommendActivity :
             updateDoneButtonIsEnabled()
         }
         binding.glFoodRecommendCuisineList.addView(totalCuisine)
+    }
+
+    private fun changeTotalCuisineIconColor(totalCuisine: CuisineView) {
+        if (totalCuisine.isSelected) {
+            totalCuisine.setIcon(R.drawable.ic_app_bg_blue)
+            return
+        }
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
     }
 
     private fun initMainButtonClickListener() {
