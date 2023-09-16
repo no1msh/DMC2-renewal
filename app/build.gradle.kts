@@ -94,6 +94,9 @@ dependencies {
 
     // naver map
     implementation("com.naver.maps:map-sdk:3.17.0")
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
 
 fun getApiKey(propertyKey: String): String {
