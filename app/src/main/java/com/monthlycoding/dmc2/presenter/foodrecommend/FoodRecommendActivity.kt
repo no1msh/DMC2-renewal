@@ -1,7 +1,5 @@
 package com.monthlycoding.dmc2.presenter.foodrecommend
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.MenuItem
@@ -157,7 +155,5 @@ class FoodRecommendActivity :
         private const val DEFAULT_CUISINE_VIEW_WIDTH = 100
         private const val DEFAULT_CUISINE_VIEW_HEIGHT = 100
         private const val DEFAULT_CUISINE_VIEW_MARGIN = 10
-
-        fun getIntent(context: Context): Intent = Intent(context, FoodRecommendActivity::class.java)
     }
 }

@@ -182,9 +182,6 @@ class SchoolAroundMapActivity :
 
         private const val INIT_ZOOM_LEVEL = 16.0
 
-        fun getIntent(context: Context): Intent =
-            Intent(context, SchoolAroundMapActivity::class.java)
-
         fun getIntent(context: Context, cuisineMarker: CuisineMarker): Intent =
             Intent(context, SchoolAroundMapActivity::class.java).apply {
                 putExtra(KEY_CUISINE_MARKER, cuisineMarker)

@@ -27,7 +27,5 @@ class CardNewsActivity : AppCompatActivity() {
 
     companion object {
         private const val CARD_NEWS_URL = "https://wogur2689.github.io/DMC2_Front/"
-
-        fun getIntent(context: Context): Intent = Intent(context, CardNewsActivity::class.java)
     }
 }

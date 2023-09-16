@@ -14,6 +14,7 @@ import com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterActivity
 import com.monthlycoding.dmc2.presenter.inquiry.InquiryActivity
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
+import kotlin.reflect.KClass
 
 class MainActivity :
     BindingActivity<ActivityMainBinding>(R.layout.activity_main),
@@ -36,41 +37,53 @@ class MainActivity :
     }
 
     override fun onFoodRecommendClick() {
-        startActivity(FoodRecommendActivity.getIntent(this))
+        navigateToActivity(FoodRecommendActivity::class)
     }
 
     override fun onHitAndMissGameClick() {
-        startActivity(HitCounterActivity.getIntent(this))
+        navigateToActivity(HitCounterActivity::class)
     }
 
     override fun onCardNewsClick() {
-        startActivity(CardNewsActivity.getIntent(this))
+        navigateToActivity(CardNewsActivity::class)
     }
 
     override fun onSchoolFoodClick() {
-        startActivity(SchoolFoodActivity.getIntent(this))
+        navigateToActivity(SchoolFoodActivity::class)
     }
 
     override fun onSchoolAroundMapClick() {
-        startActivity(SchoolAroundMapActivity.getIntent(this))
+        navigateToActivity(SchoolAroundMapActivity::class)
     }
 
     override fun onInquiryClick() {
-        startActivity(InquiryActivity.getIntent(this))
+        navigateToActivity(InquiryActivity::class)
     }
 
     override fun onCommunityClick() {
-        PrepareUpdateDialog().show(supportFragmentManager, "prepareForUpdateDialog")
+        PrepareUpdateDialog().show(supportFragmentManager, PREPARE_FOR_UPDATE_DIALOG_TAG)
     }
 
     override fun onRecruitClick() {
         val uri = Uri.parse(RECRUIT_URL)
-        val viewIntent = Intent(Intent.ACTION_VIEW, uri)
+        val viewIntent = Intent(Intent.ACTION_VIEW, uri).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        }
         startActivity(viewIntent)
+    }
+
+    private fun navigateToActivity(clazz: KClass<*>) {
+        val intent = Intent(this, clazz.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        }
+        startActivity(intent)
     }
 
     companion object {
         private const val RECRUIT_URL = "https://kangminna.github.io/MonthlyCoding_Web/"
+        private const val PREPARE_FOR_UPDATE_DIALOG_TAG = "prepareForUpdateDialog"
 
         fun getIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }

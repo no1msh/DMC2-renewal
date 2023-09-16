@@ -27,7 +27,5 @@ class SchoolFoodActivity :
 
     companion object {
         private const val SCHOOL_FOOD_URL = "https://m.dongyang.ac.kr/dongyang/130/subview.do"
-
-        fun getIntent(context: Context): Intent = Intent(context, SchoolFoodActivity::class.java)
     }
 }
