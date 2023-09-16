@@ -7,4 +7,8 @@
     </style>
 
     <style name="Theme.DMC2" parent="Base.Theme.DMC2" />
+
+    <style name="ToolbarSmallTextSize" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

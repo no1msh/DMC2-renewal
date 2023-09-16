@@ -18,8 +18,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="카테고리 아이콘을 클릭해보세요"
+            app:title="@string/school_around_map_guide"
             app:titleCentered="true"
+            app:titleTextAppearance="@style/ToolbarSmallTextSize"
             app:titleTextColor="@color/blue01_264790" />
 
         <androidx.fragment.app.FragmentContainerView

@@ -40,6 +40,7 @@
 
     <!-- school_around_map -->
     <string name="menu_filter_title">필터</string>
+    <string name="school_around_map_guide">필터 아이콘을 클릭해보세요 👉</string>
     <string name="dialog_map_filter_title">카테고리를 골라주세요</string>
     <string name="dialog_map_filter_button_done">선택완료</string>
     <string name="marker_detail_operation_hours">운영시간: %s</string>
