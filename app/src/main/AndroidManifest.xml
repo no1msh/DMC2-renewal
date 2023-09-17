@@ -15,46 +15,62 @@
         android:theme="@style/Theme.DMC2"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".presenter.inquiry.InquiryActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="${NAVER_MAP_CLIENT_ID}" />
 
         <activity
-            android:name=".presenter.schoolaroundmap.SchoolAroundMapActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.hitandmiss.hitcounter.HitCounterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.hitandmiss.HitAndMissActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.foodRecommendDetail.FoodRecommendDetailWebActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.foodrecommendcards.FoodRecommendCardsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.foodrecommend.FoodRecommendActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.schoolfood.SchoolFoodActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.cardnews.CardNewsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presenter.main.MainActivity"
+            android:name=".presenter.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presenter.inquiry.InquiryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".presenter.schoolaroundmap.SchoolAroundMapActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.hitandmiss.hitcounter.HitCounterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.hitandmiss.HitAndMissActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.foodRecommendDetail.FoodRecommendDetailWebActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.foodrecommendcards.FoodRecommendCardsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.foodrecommend.FoodRecommendActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.schoolfood.SchoolFoodActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.cardnews.CardNewsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.main.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+
         </activity>
     </application>
 

@@ -10,5 +10,5 @@ fun showDefaultSnackBar(view: View, text: String) {
 }
 
 fun showDefaultToast(context: Context, text: String) {
-    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    Toast.makeText(context, text, Toast.LENGTH_LONG).show()
 }

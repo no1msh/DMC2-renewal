@@ -1,33 +1,50 @@
 package com.monthlycoding.dmc2.presenter.cardnews
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
+import com.monthlycoding.dmc2.R
+import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.databinding.ActivityCardNewsBinding
+import com.monthlycoding.dmc2.presenter.cardnews.adapter.CardNewsAdapter
 
-class CardNewsActivity : AppCompatActivity() {
+class CardNewsActivity : BindingActivity<ActivityCardNewsBinding>(R.layout.activity_card_news) {
+
+    private val cardNewsViewModel: CardNewsViewModel by viewModels { CardNewsViewModel.Factory }
+    private val cardNewsAdapter: CardNewsAdapter by lazy {
+        CardNewsAdapter(
+            cardNewsViewModel,
+            this
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val webView = WebView(this)
-        setContentView(webView)
-        initWebView(webView)
+        initActionBar()
+        initCardNewsAdapter()
+        cardNewsViewModel.getAllCardNews()
+        observeAllCardNews()
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun initWebView(webView: WebView) {
-        webView.loadUrl(CARD_NEWS_URL)
-        webView.webViewClient = WebViewClient()
-        webView.settings.javaScriptEnabled = true
+    private fun initActionBar() {
+        setSupportActionBar(binding.tbCardNewsToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeActionContentDescription(R.string.toolbar_back_text)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back)
     }
 
-    companion object {
-        private const val CARD_NEWS_URL = "https://wogur2689.github.io/DMC2_Front/"
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 
-        fun getIntent(context: Context): Intent = Intent(context, CardNewsActivity::class.java)
+    private fun initCardNewsAdapter() {
+        binding.rvCardNewsList.adapter = cardNewsAdapter
+    }
+
+    private fun observeAllCardNews() {
+        cardNewsViewModel.allCardNews.observe(this) { allCardNews ->
+            cardNewsAdapter.submitList(allCardNews)
+        }
     }
 }

@@ -101,9 +101,9 @@
                     android:clickable="true"
                     android:elevation="4dp"
                     android:onClick="@{() -> clickListener.onCardNewsClick()}"
-                    app:categoryDescription="꿀팁, 놀거리 카드뉴스"
+                    app:categoryDescription="학교생활의 모든 것"
                     app:categoryIcon="@drawable/ic_card_news"
-                    app:categoryTitle="카드뉴스"
+                    app:categoryTitle="꿀팁추천"
                     app:layout_constraintEnd_toStartOf="@id/cv_main_school_food"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +145,7 @@
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_inquire"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/bg_main_item_green"
@@ -163,26 +163,77 @@
                 <com.monthlycoding.dmc2.custom.CategoryView
                     android:id="@+id/cv_main_community"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/bg_main_item_blue"
                     android:clickable="true"
                     android:elevation="4dp"
                     android:onClick="@{() -> clickListener.onCommunityClick()}"
                     app:categoryIcon="@drawable/ic_community"
-                    app:categoryTitle="커뮤니티"
+                    app:categoryTitle="업데이트 준비중"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@id/cv_main_inquire"
                     app:layout_constraintTop_toTopOf="@id/cv_main_inquire" />
 
-                <ImageView
-                    android:id="@+id/iv_main_ad"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_main_ad_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_main_item"
+                    android:elevation="4dp"
+                    android:onClick="@{() -> clickListener.onRecruitClick()}"
+                    android:padding="16dp"
                     android:src="@mipmap/ic_launcher"
                     app:layout_constraintTop_toBottomOf="@id/cv_main_inquire"
-                    tools:layout_editor_absoluteX="18dp" />
+                    tools:layout_editor_absoluteX="18dp">
+
+
+                    <TextView
+                        android:id="@+id/tv_main_ad_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_ad_title"
+                        android:textColor="@color/blue01_264790"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_app_bg_white"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_main_ad_title"
+                        app:layout_constraintStart_toEndOf="@+id/tv_main_ad_title" />
+
+                    <TextView
+                        android:id="@+id/tv_main_ad_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_ad_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_main_ad_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_ad_read_more"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_main_copyright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/main_copyright"
+                    android:textColor="#989898"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl_main_ad_layout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,5 @@ interface MainClickListener {
     fun onSchoolAroundMapClick()
     fun onInquiryClick()
     fun onCommunityClick()
+    fun onRecruitClick()
 }

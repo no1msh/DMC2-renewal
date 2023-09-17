@@ -1,7 +1,5 @@
 package com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -46,10 +44,5 @@ class HitCounterActivity :
             android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    companion object {
-        fun getIntent(context: Context): Intent =
-            Intent(context, HitCounterActivity::class.java)
     }
 }

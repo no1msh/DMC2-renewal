@@ -1,7 +1,5 @@
 package com.monthlycoding.dmc2.presenter.inquiry
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
@@ -61,9 +59,5 @@ class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activit
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerInquiryType.adapter = adapter
         }
-    }
-
-    companion object {
-        fun getIntent(context: Context): Intent = Intent(context, InquiryActivity::class.java)
     }
 }

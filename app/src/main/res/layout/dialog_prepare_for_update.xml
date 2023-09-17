@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_radius_20">
+
+            <ImageView
+                android:id="@+id/iv_dialog_prepare_for_update_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_app_bg_white"
+                app:layout_constraintBottom_toTopOf="@+id/tv_dialog_prepare_for_update_title"
+                app:layout_constraintEnd_toEndOf="@+id/tv_dialog_prepare_for_update_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_dialog_prepare_for_update_title" />
+
+            <TextView
+                android:id="@+id/tv_dialog_prepare_for_update_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/dialog_prepare_for_update_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_dialog_prepare_for_update_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="@string/dialog_prepare_for_update_content"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_dialog_prepare_for_update_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_dialog_prepare_for_update_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dialog_prepare_for_update_title" />
+
+            <TextView
+                android:id="@+id/tv_dialog_prepare_for_update_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:text="@string/dialog_prepare_for_update_cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dialog_prepare_for_update_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

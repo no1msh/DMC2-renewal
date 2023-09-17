@@ -1,7 +1,5 @@
 package com.monthlycoding.dmc2.presenter.foodrecommend
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.MenuItem
@@ -57,8 +55,10 @@ class FoodRecommendActivity :
     private fun addTotalCuisineView() {
         val totalCuisine = createStandardCuisineView()
         totalCuisine.setTitle(getString(R.string.food_recommend_total_cuisine_view_title))
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
         totalCuisine.setOnClickListener {
             totalCuisine.isSelected = !totalCuisine.isSelected
+            changeTotalCuisineIconColor(totalCuisine)
             binding.glFoodRecommendCuisineList.children
                 .map { it as CuisineView }
                 .forEach { cuisineView ->
@@ -68,6 +68,14 @@ class FoodRecommendActivity :
             updateDoneButtonIsEnabled()
         }
         binding.glFoodRecommendCuisineList.addView(totalCuisine)
+    }
+
+    private fun changeTotalCuisineIconColor(totalCuisine: CuisineView) {
+        if (totalCuisine.isSelected) {
+            totalCuisine.setIcon(R.drawable.ic_app_bg_blue)
+            return
+        }
+        totalCuisine.setIcon(R.drawable.ic_app_bg_white)
     }
 
     private fun initMainButtonClickListener() {
@@ -133,9 +141,11 @@ class FoodRecommendActivity :
             .filter { it.categoryId != CuisineView.TOTAL_CATEGORY_ID && it.isSelected }.count()
         val totalCount = binding.glFoodRecommendCuisineList.childCount - TOTAL_BUTTON
 
-        binding.glFoodRecommendCuisineList.children.map { it as CuisineView }
+        binding.glFoodRecommendCuisineList.children
+            .map { it as CuisineView }
             .find { it.categoryId == CuisineView.TOTAL_CATEGORY_ID }?.apply {
                 isSelected = selectedCount == totalCount
+                changeTotalCuisineIconColor(this)
                 changeCuisineViewTitleTextColor(this)
             }
     }
@@ -157,7 +167,5 @@ class FoodRecommendActivity :
         private const val DEFAULT_CUISINE_VIEW_WIDTH = 100
         private const val DEFAULT_CUISINE_VIEW_HEIGHT = 100
         private const val DEFAULT_CUISINE_VIEW_MARGIN = 10
-
-        fun getIntent(context: Context): Intent = Intent(context, FoodRecommendActivity::class.java)
     }
 }

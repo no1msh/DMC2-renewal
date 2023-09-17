@@ -5,10 +5,13 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.databinding.ActivitySchoolAroundMapBinding
+import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailWebActivity
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraAnimation
@@ -19,9 +22,11 @@ import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
 
+
 class SchoolAroundMapActivity :
     BindingActivity<ActivitySchoolAroundMapBinding>(R.layout.activity_school_around_map),
     MapFilterDialogClickListener,
+    MarkerDetailClickListener,
     OnMapReadyCallback {
 
     private val schoolAroundMapViewModel: SchoolAroundMapViewModel by viewModels { SchoolAroundMapViewModel.Factory }
@@ -62,12 +67,12 @@ class SchoolAroundMapActivity :
 
     private fun showFilterDialog() {
         MapFilterDialog(this, this).apply {
-            val density = resources.displayMetrics.density * 1.2
-            window?.setLayout(
-                (DEFAULT_DIALOG_WIDTH * density).toInt(),
-                (DEFAULT_DIALOG_HEIGHT * density).toInt()
-            )
+            val layoutParams = WindowManager.LayoutParams()
+            layoutParams.copyFrom(this.window?.attributes)
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+            layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
             show()
+            window?.attributes = layoutParams
         }
     }
 
@@ -107,6 +112,10 @@ class SchoolAroundMapActivity :
         marker.captionText = "8호관"
         marker.setOnClickListener {
             moveCameraToMaker(it as Marker)
+            showDefaultToast(
+                this@SchoolAroundMapActivity,
+                getString(R.string.marker_school_description)
+            )
             return@setOnClickListener true
         }
 
@@ -159,19 +168,19 @@ class SchoolAroundMapActivity :
     }
 
     private fun showMarkerDetail(cuisineMarker: CuisineMarker) {
-        val modal = MarkerDetailBottomSheetDialog(cuisineMarker)
-        modal.show(supportFragmentManager, MarkerDetailBottomSheetDialog.TAG)
+        val dialog = MarkerDetailBottomSheetDialog(cuisineMarker, this)
+        dialog.show(supportFragmentManager, MarkerDetailBottomSheetDialog.TAG)
+    }
+
+    override fun onDetailClick(url: String, storeName: String) {
+        startActivity(FoodRecommendDetailWebActivity.getIntent(this, url, storeName))
     }
 
     companion object {
-        private const val DEFAULT_DIALOG_WIDTH = 340
-        private const val DEFAULT_DIALOG_HEIGHT = 600
         private const val KEY_CUISINE_MARKER = "KEY_CUISINE_MARKER"
         private val SCHOOL_LAT_LNG = LatLng(37.501015, 126.866547)
-        private const val INIT_ZOOM_LEVEL = 16.0
 
-        fun getIntent(context: Context): Intent =
-            Intent(context, SchoolAroundMapActivity::class.java)
+        private const val INIT_ZOOM_LEVEL = 16.0
 
         fun getIntent(context: Context, cuisineMarker: CuisineMarker): Intent =
             Intent(context, SchoolAroundMapActivity::class.java).apply {
