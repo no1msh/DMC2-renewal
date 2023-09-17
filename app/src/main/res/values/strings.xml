@@ -19,6 +19,9 @@
     <string name="cuisine_title_id10">술집</string>
     <string name="cuisine_title_total">전체</string>
 
+    <!-- card_news -->
+    <string name="item_card_news_read_more"><u>더보기</u></string>
+
     <!-- food_recommend -->
     <string name="food_recommend_main_button_text">확인</string>
     <string name="food_recommend_total_cuisine_view_title">전체</string>

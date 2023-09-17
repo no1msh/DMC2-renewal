@@ -18,4 +18,6 @@ fun CardNews.toUIModel(): CardNewsUIModel = CardNewsUIModel(
     createdAt = createdAt,
     imageUrl = imageUrl,
     title = title,
+    isReadMoreCollapse = true,
+    isNeedReadMore = content.length > CardNewsUIModel.MAX_CONTENT_LENGTH,
 )

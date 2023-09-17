@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils.TruncateAt" />
+
+        <variable
+            name="cardNews"
+            type="com.monthlycoding.dmc2.presenter.cardnews.model.CardNewsUIModel" />
+
+        <variable
+            name="cardNewsViewModel"
+            type="com.monthlycoding.dmc2.presenter.cardnews.CardNewsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_white_radius_20"
+        android:elevation="4dp"
+        android:paddingVertical="20dp">
+
+        <TextView
+            android:id="@+id/tv_item_card_news_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{cardNews.title}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/gl_item_card_news_end"
+            app:layout_constraintStart_toStartOf="@+id/gl_item_card_news_start"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="우리 학교는 잡플래닛 제휴!" />
+
+        <TextView
+            android:id="@+id/tv_item_card_news_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{cardNews.createdAt}"
+            app:layout_constraintStart_toStartOf="@+id/gl_item_card_news_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_card_news_title"
+            tools:text="2023-09-16 14:49:32" />
+
+        <ImageView
+            android:id="@+id/iv_item_card_news_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:glideSrc="@{cardNews.imageUrl}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_card_news_created_at"
+            tools:src="@drawable/ic_app_bg_blue" />
+
+        <TextView
+            android:id="@+id/tv_item_card_news_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="@{cardNews.readMoreCollapse ? TruncateAt.END : null}"
+            android:maxLines="@{cardNews.visibleReadMore ? 4 : 30}"
+            android:text="@{cardNews.content}"
+            app:layout_constraintEnd_toStartOf="@+id/gl_item_card_news_end"
+            app:layout_constraintStart_toStartOf="@+id/gl_item_card_news_start"
+            app:layout_constraintTop_toBottomOf="@id/iv_item_card_news_image"
+            tools:text="우리학교는 잡플래닛 제휴에요!" />
+
+        <TextView
+            android:id="@+id/tv_item_card_news_read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> cardNewsViewModel.changeCardNewsReadMoreState(cardNews)}"
+            android:padding="10dp"
+            android:text="@string/item_card_news_read_more"
+            app:isGone="@{!cardNews.visibleReadMore}"
+            app:layout_constraintEnd_toStartOf="@+id/gl_item_card_news_end"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_card_news_content" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_item_card_news_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_item_card_news_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
