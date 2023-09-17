@@ -141,9 +141,11 @@ class FoodRecommendActivity :
             .filter { it.categoryId != CuisineView.TOTAL_CATEGORY_ID && it.isSelected }.count()
         val totalCount = binding.glFoodRecommendCuisineList.childCount - TOTAL_BUTTON
 
-        binding.glFoodRecommendCuisineList.children.map { it as CuisineView }
+        binding.glFoodRecommendCuisineList.children
+            .map { it as CuisineView }
             .find { it.categoryId == CuisineView.TOTAL_CATEGORY_ID }?.apply {
                 isSelected = selectedCount == totalCount
+                changeTotalCuisineIconColor(this)
                 changeCuisineViewTitleTextColor(this)
             }
     }
