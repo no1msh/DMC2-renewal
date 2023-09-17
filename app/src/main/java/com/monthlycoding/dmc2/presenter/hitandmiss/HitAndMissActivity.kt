@@ -78,7 +78,7 @@ class HitAndMissActivity :
     companion object {
         private const val KEY_HIT_COUNT = "KEY_HIT_COUNT"
         private const val DEFAULT_CUISINE_VIEW_WIDTH = 120
-        private const val DEFAULT_CUISINE_VIEW_HEIGHT = 189
+        private const val DEFAULT_CUISINE_VIEW_HEIGHT = 180
         private const val DEFAULT_CUISINE_VIEW_MARGIN = 4
 
         fun getIntent(context: Context, hitCount: Int): Intent {

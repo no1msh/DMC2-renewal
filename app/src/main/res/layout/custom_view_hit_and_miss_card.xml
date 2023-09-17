@@ -9,21 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="20dp">
-
+        android:background="@android:color/transparent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_hit_and_miss_card_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:elevation="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_white_radius_10"
+            android:elevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
 
             <TextView
                 android:id="@+id/tv_hit_and_miss_card_back"
@@ -41,7 +39,9 @@
             android:id="@+id/tv_hit_and_miss_card_front_hit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_white_radius_10"
+            android:elevation="4dp"
             android:gravity="center"
             android:text="@string/hit_and_miss_card_hit"
             android:textColor="#FF0000"
@@ -57,8 +57,10 @@
             android:id="@+id/cl_hit_and_miss_card_front_miss"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_white_radius_10"
+            android:elevation="4dp"
             android:visibility="gone"
-            android:elevation="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
