@@ -63,24 +63,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:ellipsize="@{cardNews.readMoreCollapse ? TruncateAt.END : null}"
-            android:maxLines="@{cardNews.visibleReadMore ? 4 : 30}"
             android:text="@{cardNews.content}"
             app:layout_constraintEnd_toStartOf="@+id/gl_item_card_news_end"
             app:layout_constraintStart_toStartOf="@+id/gl_item_card_news_start"
             app:layout_constraintTop_toBottomOf="@id/iv_item_card_news_image"
             tools:text="우리학교는 잡플래닛 제휴에요!" />
-
-        <TextView
-            android:id="@+id/tv_item_card_news_read_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> cardNewsViewModel.changeCardNewsReadMoreState(cardNews)}"
-            android:padding="10dp"
-            android:text="@string/item_card_news_read_more"
-            app:isGone="@{!cardNews.visibleReadMore}"
-            app:layout_constraintEnd_toStartOf="@+id/gl_item_card_news_end"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_card_news_content" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_item_card_news_start"

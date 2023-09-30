@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.monthlycoding.dmc2.R
 
 object BindingAdapter {
     @JvmStatic
@@ -43,6 +44,7 @@ object BindingAdapter {
         imageUrl?.let {
             Glide.with(imageView.context)
                 .load(it)
+                .placeholder(R.drawable.ic_app_bg_white)
                 .into(imageView)
         }
     }

@@ -30,16 +30,6 @@ class CardNewsViewModel(
         }
     }
 
-    fun changeCardNewsReadMoreState(cardNews: CardNewsUIModel) {
-        val targetIndex: Int = _allCardNews.value?.indexOf(cardNews) ?: -1
-        if (targetIndex != -1) {
-            val mutableCardNews: MutableList<CardNewsUIModel> =
-                _allCardNews.value!!.toMutableList()
-            mutableCardNews[targetIndex] = cardNews.copy(isReadMoreCollapse = false)
-            _allCardNews.value = mutableCardNews.toList()
-        }
-    }
-
     companion object {
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
