@@ -6,13 +6,4 @@ data class CardNewsUIModel(
     val createdAt: String,
     val imageUrl: String,
     val title: String,
-    val isNeedReadMore: Boolean = false,
-    val isReadMoreCollapse: Boolean = true,
-) {
-
-    fun isVisibleReadMore(): Boolean = isNeedReadMore && isReadMoreCollapse
-
-    companion object {
-        const val MAX_CONTENT_LENGTH = 200
-    }
-}
+)
