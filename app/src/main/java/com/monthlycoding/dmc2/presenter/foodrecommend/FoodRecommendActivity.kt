@@ -94,10 +94,9 @@ class FoodRecommendActivity :
 
     private fun createStandardCuisineView(): CuisineView {
         val cuisineView = CuisineView(this)
-        val layoutParams = ConstraintLayout.LayoutParams(
-            getDpToPixel(DEFAULT_CUISINE_VIEW_WIDTH),
-            getDpToPixel(DEFAULT_CUISINE_VIEW_HEIGHT),
-        ).apply { this.setMargins(getDpToPixel(DEFAULT_CUISINE_VIEW_MARGIN)) }
+        val defaultSize = resources.displayMetrics.widthPixels / 4
+        val layoutParams = ConstraintLayout.LayoutParams(defaultSize, defaultSize)
+            .apply { this.setMargins(defaultSize / 10) }
 
         cuisineView.layoutParams = layoutParams
 

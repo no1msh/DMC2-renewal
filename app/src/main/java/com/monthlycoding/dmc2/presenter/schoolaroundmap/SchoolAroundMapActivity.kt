@@ -70,7 +70,7 @@ class SchoolAroundMapActivity :
             val layoutParams = WindowManager.LayoutParams()
             layoutParams.copyFrom(this.window?.attributes)
             layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
-            layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+            layoutParams.height = (resources.displayMetrics.heightPixels * 0.8).toInt()
             show()
             window?.attributes = layoutParams
         }

@@ -79,10 +79,9 @@ class MapFilterDialog(
 
     private fun createStandardCuisineView(): CuisineView {
         val cuisineView = CuisineView(context)
-        val layoutParams = ConstraintLayout.LayoutParams(
-            getDpToPixel(DEFAULT_CUISINE_VIEW_WIDTH),
-            getDpToPixel(DEFAULT_CUISINE_VIEW_HEIGHT),
-        ).apply { this.setMargins(getDpToPixel(DEFAULT_CUISINE_VIEW_MARGIN)) }
+        val defaultSize = context.resources.displayMetrics.widthPixels / 4
+        val layoutParams = ConstraintLayout.LayoutParams(defaultSize, defaultSize)
+            .apply { this.setMargins(getDpToPixel(DEFAULT_CUISINE_VIEW_MARGIN)) }
 
         cuisineView.layoutParams = layoutParams
 
@@ -107,8 +106,6 @@ class MapFilterDialog(
     ).toInt()
 
     companion object {
-        private const val DEFAULT_CUISINE_VIEW_WIDTH = 100
-        private const val DEFAULT_CUISINE_VIEW_HEIGHT = 100
-        private const val DEFAULT_CUISINE_VIEW_MARGIN = 10
+        private const val DEFAULT_CUISINE_VIEW_MARGIN = 8
     }
 }
