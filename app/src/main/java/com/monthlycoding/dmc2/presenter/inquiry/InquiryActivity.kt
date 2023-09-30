@@ -1,11 +1,11 @@
 package com.monthlycoding.dmc2.presenter.inquiry
 
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
-import com.monthlycoding.dmc2.common.showDefaultSnackBar
 import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.databinding.ActivityInquiryBinding
 import com.monthlycoding.domain.model.Inquiry
@@ -32,14 +32,21 @@ class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activit
                         inquiryTypeId = InquiryType.findById(binding.spinnerInquiryType.selectedItemPosition).id
                     )
                 )
-            } else {
-                showDefaultSnackBar(it, "빈 칸 없이 모두 기입해주세요.")
             }
         }
     }
 
-    private fun isValidateInquiry() = (!binding.etInquiryEmail.text.isNullOrBlank()
-            && !binding.etInquiryContent.text.isNullOrBlank())
+    private fun isValidateInquiry(): Boolean {
+        if (binding.etInquiryContent.text.isNullOrBlank()) {
+            showDefaultToast(this, "빈 칸 없이 모두 기입해주세요.")
+            return false
+        }
+        if (!binding.etInquiryEmail.text.isValidateEmail()) {
+            showDefaultToast(this, "이메일 형식이 유효하지 않습니다.")
+            return false
+        }
+        return true
+    }
 
     private fun observeIsSuccessfulPostInquiry() {
         inquiryViewModel.isSuccessfulPostInquiry.observe(this) { isSuccess ->
@@ -60,4 +67,7 @@ class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activit
             binding.spinnerInquiryType.adapter = adapter
         }
     }
+
+    private fun CharSequence?.isValidateEmail() =
+        !isNullOrBlank() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
