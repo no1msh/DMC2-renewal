@@ -16,36 +16,50 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/dialog_map_filter_title"
+            android:textStyle="bold"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <GridLayout
-            android:id="@+id/gl_map_filter_cuisine_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:columnCount="3"
-            android:orientation="vertical"
-            android:rowCount="4"
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_map_filter_button_done"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_map_filter_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_map_filter_title"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <GridLayout
+                android:id="@+id/gl_map_filter_cuisine_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:columnCount="3"
+                android:orientation="vertical"
+                android:rowCount="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_map_filter_title" />
+        </ScrollView>
 
         <TextView
             android:id="@+id/tv_map_filter_button_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:clickable="true"
-            android:padding="10dp"
+            android:padding="20dp"
             android:text="@string/dialog_map_filter_button_done"
-            android:textStyle="bold"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
