@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="morning">
+        <item>아침 거르지 마세요!</item>
+        <item>간단하게 빵이라도 드시는 건 어떤가요?</item>
+        <item>아침 안 먹으면 강의 시간에 집중 안 돼요!</item>
+        <item>샌드위치 어때요?</item>
+        <item>모닝커피는 국룰입니다.</item>
+        <item>도서관 엘리베이터를 통해서도 올라갈 수 있어요!</item>
+        <item>오늘 아침도 힘내세요🥰</item>
+    </string-array>
+
+    <string-array name="lunch">
+        <item>강의 중간에 뭐 먹지? 점심 메뉴 고민 중..</item>
+        <item>오늘 점심은 뭐 먹어야 할지 고민되네요.</item>
+        <item>혹시 떡볶이 저만 땡기나요?</item>
+        <item>아 돈까스 먹고 싶네요.</item>
+        <item>구내식당에서 라면 먹고 갈래..?</item>
+        <item>공강이라면 3호관 카페 앞 커뮤니티실은 어때요?</item>
+    </string-array>
+
+    <string-array name="late_lunch">
+        <item>커피 한 잔 어떠세요?</item>
+        <item>오늘 아이스크림은 누가 살지</item>
+        <item>달달한 거 땡기지 않나요?</item>
+        <item>커피 마시면서 카공할까요?</item>
+        <item>오늘은 도서관에서 잠깐 공부 어때요?</item>
+        <item>시간 있다면 학교 산책은 어때요?</item>
+    </string-array>
+
+    <string-array name="night">
+        <item>빨리 집에 가서 밥 먹고 싶다.</item>
+        <item>동기들과 간맥 어떤가요?</item>
+        <item>오늘 저녁은 치킨 어떤가요?</item>
+        <item>오늘 팀 프로젝트는 도서관 그룹 스터디룸에서\n해볼까요?</item>
+        <item>오늘따라 시끌벅적한 학교 밖에서 같이 즐겨요!</item>
+    </string-array>
+
+    <string-array name="late_night">
+        <item>치킨 땡긴다!</item>
+        <item>오늘은 일찍 잠드는 게 어떤가요?</item>
+        <item>피자 먹을까요?</item>
+        <item>오늘 하루도 수고하셨어요🫠</item>
+        <item>오늘 해야 할 과제는 전부 마쳤나요?</item>
+    </string-array>
+
+    <string-array name="dawn">
+        <item>무엇 때문에 잠을 못 이루고 있나요?</item>
+        <item>Zzz.. Zzz..</item>
+        <item>드르렁 푸우~</item>
+        <item>고민이 있다면 학생 상담센터에서 같이 들어줄게요.</item>
+        <item>과제도 좋지만 잠도 중요합니다😴</item>
+    </string-array>
+
+    <string-array name="common">
+        <item>오늘도 반갑습니다!</item>
+        <item>뭘 먹을지 결정하지 못했나요? 저희가 정해드려요!</item>
+        <item>오늘은 끌리는 게 없다면 음식 추천을 눌러보세요!</item>
+        <item>학교 주변에 가볼 만한 곳을 알려줄게요.</item>
+        <item>한눈에 볼 수 있는 학교 주변 지도를 확인하세요!</item>
+        <item>복불복으로 친구들과 내기해 볼까요?</item>
+        <item>복불복 해볼까요? 나만 아니면 돼요??</item>
+        <item>오늘 학식은 어떤 게 나올지 확인해봐요.</item>
+        <item>가끔 먹는 학식만큼 든든한 게 없죠.</item>
+        <item>선배가 후배에게 들려주고 싶은 꿀팁을\n확인할 수 있어요!</item>
+        <item>학교 주변 놀거리가 궁금하다면 꿀팁을\n확인해주세요!</item>
+    </string-array>
+</resources>

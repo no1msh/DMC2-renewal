@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presenter.hitandmiss.HitAndMissActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_hit_and_miss_tool_bar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white01_F3F4F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="복불복"
+            app:titleCentered="true"
+            app:titleTextColor="@color/blue01_264790" />
+
+        <TextView
+            android:id="@+id/tv_hit_and_miss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hit_and_miss_title"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_hit_and_miss_tool_bar" />
+
+        <GridLayout
+            android:id="@+id/gl_hit_and_miss_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:columnCount="3"
+            android:orientation="vertical"
+            android:rowCount="3"
+            app:layout_constraintBottom_toTopOf="@+id/tv_hit_and_miss_button_done"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hit_and_miss_title" />
+
+        <TextView
+            android:id="@+id/tv_hit_and_miss_button_done"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_button_radius_10"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/food_recommend_main_button_text"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,56 +1,90 @@
 package com.monthlycoding.dmc2.presenter.main
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import com.google.android.material.snackbar.Snackbar
+import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.databinding.ActivityMainBinding
+import com.monthlycoding.dmc2.presenter.cardnews.CardNewsActivity
+import com.monthlycoding.dmc2.presenter.foodrecommend.FoodRecommendActivity
+import com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterActivity
+import com.monthlycoding.dmc2.presenter.inquiry.InquiryActivity
+import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
 import com.monthlycoding.dmc2.presenter.schoolfood.SchoolFoodActivity
+import kotlin.reflect.KClass
 
 class MainActivity :
     BindingActivity<ActivityMainBinding>(R.layout.activity_main),
     MainClickListener {
+
+    private val mainViewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.clickListener = this
+        mainViewModel.initGreetings()
+        observeGreetingsText()
+    }
+
+    private fun observeGreetingsText() {
+        mainViewModel.greetings.observe(this) {
+            binding.tvMainGreetings.text = it.getGreetings(this)
+        }
     }
 
     override fun onFoodRecommendClick() {
-        // 음식 추천 화면으로 이동
-        showSnackBar(binding.cvMainFoodRecommend, "준비중인 기능입니다")
+        navigateToActivity(FoodRecommendActivity::class)
     }
 
-    override fun onWhoWillPayClick() {
-        // 복불복 화면으로 이동
-        showSnackBar(binding.cvMainWhoWillPickUpTheBill, "준비중인 기능입니다")
+    override fun onHitAndMissGameClick() {
+        navigateToActivity(HitCounterActivity::class)
     }
 
     override fun onCardNewsClick() {
-        // 카드뉴스 화면으로 이동
-        showSnackBar(binding.cvMainCardNews, "준비중인 기능입니다")
+        navigateToActivity(CardNewsActivity::class)
     }
 
     override fun onSchoolFoodClick() {
-        startActivity(SchoolFoodActivity.getIntent(this))
+        navigateToActivity(SchoolFoodActivity::class)
     }
 
     override fun onSchoolAroundMapClick() {
-        // 지도 화면으로 이동
-        showSnackBar(binding.cvMainSchoolAroundMap, "준비중인 기능입니다")
+        navigateToActivity(SchoolAroundMapActivity::class)
     }
 
-    override fun onInquireClick() {
-        // 문의하기 웹 뷰 인텐트
+    override fun onInquiryClick() {
+        navigateToActivity(InquiryActivity::class)
     }
 
     override fun onCommunityClick() {
-        // 커뮤니티 화면으로 이동
-        showSnackBar(binding.cvMainCommunity, "준비중인 기능입니다")
+        PrepareUpdateDialog().show(supportFragmentManager, PREPARE_FOR_UPDATE_DIALOG_TAG)
     }
 
-    private fun showSnackBar(view: View, text: String) {
-        Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+    override fun onRecruitClick() {
+        val uri = Uri.parse(RECRUIT_URL)
+        val viewIntent = Intent(Intent.ACTION_VIEW, uri).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        }
+        startActivity(viewIntent)
+    }
+
+    private fun navigateToActivity(clazz: KClass<*>) {
+        val intent = Intent(this, clazz.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        }
+        startActivity(intent)
+    }
+
+    companion object {
+        private const val RECRUIT_URL = "https://kangminna.github.io/MonthlyCoding_Web/"
+        private const val PREPARE_FOR_UPDATE_DIALOG_TAG = "prepareForUpdateDialog"
+
+        fun getIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 }

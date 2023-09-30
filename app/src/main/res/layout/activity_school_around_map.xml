@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_school_around_map_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white01_F3F4F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/school_around_map_guide"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/ToolbarSmallTextSize"
+            app:titleTextColor="@color/blue01_264790" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv_school_around_map"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_school_around_map_toolbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

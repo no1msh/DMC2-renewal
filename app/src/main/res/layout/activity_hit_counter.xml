@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.monthlycoding.dmc2.presenter.hitandmiss.hitcounter.HitCounterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presenter.hitandmiss.hitcounter.HitCounterActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_hit_counter_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white01_F3F4F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="복불복"
+            app:titleCentered="true"
+            app:titleTextColor="@color/blue01_264790" />
+
+
+        <TextView
+            android:id="@+id/tv_hit_counter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/hit_counter_title"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_hit_counter_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_hit_counter_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hit_counter_description"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_hit_counter_title"
+            app:layout_constraintStart_toStartOf="@id/tv_hit_counter_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_hit_counter_title" />
+
+        <TextView
+            android:id="@+id/tv_hit_counter_button_decrease"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_decrease_button"
+            android:onClick="@{() -> viewModel.decreaseCount()}"
+            app:isEnabled="@{viewModel.isEnabledDecrease()}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_hit_counter_count"
+            app:layout_constraintEnd_toStartOf="@+id/tv_hit_counter_count"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_hit_counter_count" />
+
+
+        <TextView
+            android:id="@+id/tv_hit_counter_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.count.toString()}"
+            android:textColor="@color/blue01_264790"
+            android:textSize="100sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_hit_counter_button_increase"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_hit_counter_button_decrease"
+            app:layout_constraintTop_toBottomOf="@+id/tb_hit_counter_toolbar"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_hit_counter_button_increase"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_increase_button"
+            android:onClick="@{() -> viewModel.increaseCount()}"
+            app:isEnabled="@{viewModel.isEnabledIncrease()}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_hit_counter_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_hit_counter_count"
+            app:layout_constraintTop_toTopOf="@+id/tv_hit_counter_count" />
+
+        <TextView
+            android:id="@+id/tv_hit_counter_button_done"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_button_radius_10"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/hit_counter_button_done"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

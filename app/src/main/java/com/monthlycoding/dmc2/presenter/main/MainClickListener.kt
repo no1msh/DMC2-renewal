@@ -2,10 +2,11 @@ package com.monthlycoding.dmc2.presenter.main
 
 interface MainClickListener {
     fun onFoodRecommendClick()
-    fun onWhoWillPayClick()
+    fun onHitAndMissGameClick()
     fun onCardNewsClick()
     fun onSchoolFoodClick()
     fun onSchoolAroundMapClick()
-    fun onInquireClick()
+    fun onInquiryClick()
     fun onCommunityClick()
+    fun onRecruitClick()
 }
