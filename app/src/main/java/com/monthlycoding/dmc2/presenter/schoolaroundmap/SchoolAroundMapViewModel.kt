@@ -3,11 +3,8 @@ package com.monthlycoding.dmc2.presenter.schoolaroundmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.monthlycoding.dmc2.data.datasource.remote.FoodRecommendDataSourceImpl
-import com.monthlycoding.dmc2.data.remote.NetworkServiceModule
-import com.monthlycoding.dmc2.data.repository.FoodRecommendRepositoryImpl
+import com.monthlycoding.dmc2.data.repository.DefaultFoodRecommendRepository
 import com.monthlycoding.dmc2.presenter.foodrecommend.model.Cuisine
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.model.CuisineMarker
 import com.monthlycoding.domain.model.FoodRecommend
@@ -15,7 +12,7 @@ import com.naver.maps.geometry.LatLng
 import kotlinx.coroutines.launch
 
 class SchoolAroundMapViewModel(
-    private val repository: FoodRecommendRepositoryImpl
+    private val repository: DefaultFoodRecommendRepository
 ) : ViewModel() {
 
     private val _cuisineMarkers: MutableLiveData<List<CuisineMarker>> = MutableLiveData()
@@ -43,18 +40,4 @@ class SchoolAroundMapViewModel(
         operationHours = operationHours,
         requiredTime = requiredTime,
     )
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                val repository = FoodRecommendRepositoryImpl(
-                    FoodRecommendDataSourceImpl(
-                        NetworkServiceModule.foodRecommendService,
-                    ),
-                )
-                return SchoolAroundMapViewModel(repository) as T
-            }
-        }
-    }
 }

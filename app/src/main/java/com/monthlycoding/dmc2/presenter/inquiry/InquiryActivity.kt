@@ -9,10 +9,12 @@ import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.databinding.ActivityInquiryBinding
 import com.monthlycoding.domain.model.Inquiry
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activity_inquiry) {
 
-    private val inquiryViewModel: InquiryViewModel by viewModels { InquiryViewModel.Factory }
+    private val inquiryViewModel: InquiryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
