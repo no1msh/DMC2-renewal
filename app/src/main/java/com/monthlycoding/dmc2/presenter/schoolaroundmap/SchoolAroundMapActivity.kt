@@ -29,7 +29,7 @@ class SchoolAroundMapActivity :
     MarkerDetailClickListener,
     OnMapReadyCallback {
 
-    private val schoolAroundMapViewModel: SchoolAroundMapViewModel by viewModels { SchoolAroundMapViewModel.Factory }
+    private val schoolAroundMapViewModel: SchoolAroundMapViewModel by viewModels()
     private lateinit var naverMap: NaverMap
     private val displayedMarkers: MutableList<Marker> = mutableListOf()
 

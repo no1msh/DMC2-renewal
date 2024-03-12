@@ -6,10 +6,12 @@ import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
 import com.monthlycoding.dmc2.databinding.ActivityCardNewsBinding
 import com.monthlycoding.dmc2.presenter.cardnews.adapter.CardNewsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CardNewsActivity : BindingActivity<ActivityCardNewsBinding>(R.layout.activity_card_news) {
 
-    private val cardNewsViewModel: CardNewsViewModel by viewModels { CardNewsViewModel.Factory }
+    private val cardNewsViewModel: CardNewsViewModel by viewModels()
     private val cardNewsAdapter: CardNewsAdapter by lazy {
         CardNewsAdapter(
             cardNewsViewModel,

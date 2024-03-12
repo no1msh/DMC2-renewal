@@ -3,16 +3,15 @@ package com.monthlycoding.dmc2.presenter.inquiry
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.monthlycoding.dmc2.data.datasource.remote.InquiryDataSourceImpl
-import com.monthlycoding.dmc2.data.remote.NetworkServiceModule
-import com.monthlycoding.dmc2.data.repository.InquiryRepositoryImpl
 import com.monthlycoding.domain.model.Inquiry
 import com.monthlycoding.domain.repository.InquiryRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class InquiryViewModel(
+@HiltViewModel
+class InquiryViewModel @Inject constructor(
     private val inquiryRepository: InquiryRepository
 ) : ViewModel() {
 
@@ -25,20 +24,6 @@ class InquiryViewModel(
                 inquiryRepository.postInquiry(inquiry)
             }.onSuccess {
                 _isSuccessfulPostInquiry.value = true
-            }
-        }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                val repository = InquiryRepositoryImpl(
-                    InquiryDataSourceImpl(
-                        NetworkServiceModule.inquiryService,
-                    ),
-                )
-                return InquiryViewModel(repository) as T
             }
         }
     }

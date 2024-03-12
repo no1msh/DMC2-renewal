@@ -4,8 +4,9 @@ import com.monthlycoding.dmc2.data.datasource.remote.FoodRecommendDataSource
 import com.monthlycoding.dmc2.data.mapper.toDomain
 import com.monthlycoding.domain.model.FoodRecommend
 import com.monthlycoding.domain.repository.FoodRecommendRepository
+import javax.inject.Inject
 
-class FoodRecommendRepositoryImpl(
+class DefaultFoodRecommendRepository @Inject constructor(
     private val foodRecommendDataSource: FoodRecommendDataSource
 ) : FoodRecommendRepository {
     override suspend fun getFoodRecommends(categoryIds: List<Int>): List<FoodRecommend> {

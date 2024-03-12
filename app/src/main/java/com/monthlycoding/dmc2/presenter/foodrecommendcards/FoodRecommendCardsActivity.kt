@@ -13,12 +13,14 @@ import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailW
 import com.monthlycoding.dmc2.presenter.foodrecommendcards.adapter.FoodRecommendAdapter
 import com.monthlycoding.dmc2.presenter.foodrecommendcards.model.FoodRecommendUiModel
 import com.monthlycoding.dmc2.presenter.schoolaroundmap.SchoolAroundMapActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FoodRecommendCardsActivity :
     BindingActivity<ActivityFoodRecommendCardsBinding>(R.layout.activity_food_recommend_cards),
     FoodRecommendCardButtonClickListener {
 
-    private val foodRecommendCardsViewModel: FoodRecommendCardsViewModel by viewModels { FoodRecommendCardsViewModel.Factory }
+    private val foodRecommendCardsViewModel: FoodRecommendCardsViewModel by viewModels()
     private val foodRecommendAdapter: FoodRecommendAdapter by lazy { FoodRecommendAdapter(this) }
     private val viewPagerCustomUtil: ViewPagerCustomUtil by lazy {
         ViewPagerCustomUtil(
