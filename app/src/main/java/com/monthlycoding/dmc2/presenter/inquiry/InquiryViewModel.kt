@@ -20,11 +20,9 @@ class InquiryViewModel @Inject constructor(
 
     fun postInquiry(inquiry: Inquiry) {
         viewModelScope.launch {
-            runCatching {
-                inquiryRepository.postInquiry(inquiry)
-            }.onSuccess {
-                _isSuccessfulPostInquiry.value = true
-            }
+            inquiryRepository.postInquiry(inquiry)
+                .onSuccess { _isSuccessfulPostInquiry.value = true }
+                .onFailure { _isSuccessfulPostInquiry.value = false }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.monthlycoding.dmc2.di
 import android.util.Log
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.monthlycoding.dmc2.BuildConfig
+import com.monthlycoding.dmc2.common.DMC2CallAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,6 +43,7 @@ object NetworkModule {
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl(BuildConfig.DMC2_BASE_URL)
         .addConverterFactory(Json.asConverterFactory(CONTENT_TYPE.toMediaType()))
+        .addCallAdapterFactory(DMC2CallAdapter.CallAdapterFactory)
         .client(client)
         .build()
 }

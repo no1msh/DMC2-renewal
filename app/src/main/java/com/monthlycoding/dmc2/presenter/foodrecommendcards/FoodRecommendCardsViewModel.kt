@@ -1,5 +1,6 @@
 package com.monthlycoding.dmc2.presenter.foodrecommendcards
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,12 +21,13 @@ class FoodRecommendCardsViewModel @Inject constructor(
 
     fun fetchFoodRecommends(categoryIds: List<Int>) {
         viewModelScope.launch {
-            runCatching {
-                foodRecommendRepository.getFoodRecommends(categoryIds).map { it.toUiModel() }
-                    .shuffled()
-            }.onSuccess {
-                _foodRecommends.value = it
-            }
+            foodRecommendRepository.getFoodRecommends(categoryIds)
+                .onSuccess {
+                    _foodRecommends.value = it.map { it.toUiModel() }
+                }
+                .onFailure {
+                    Log.d("NetworkError", it.message.toString())
+                }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.monthlycoding.dmc2.presenter.schoolaroundmap
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,12 +21,14 @@ class SchoolAroundMapViewModel(
 
     fun getStoreMarkers(ids: List<Int>) {
         viewModelScope.launch {
-            runCatching {
-                repository.getFoodRecommends(ids)
-            }.onSuccess { foodRecommends ->
-                _cuisineMarkers.value = foodRecommends
-                    .map { it.toCuisineMarker() }
-            }
+            repository.getFoodRecommends(ids)
+                .onSuccess { foodRecommends ->
+                    _cuisineMarkers.value = foodRecommends
+                        .map { it.toCuisineMarker() }
+                }
+                .onFailure {
+                    Log.d("NetworkError", it.message.toString())
+                }
         }
     }
 
