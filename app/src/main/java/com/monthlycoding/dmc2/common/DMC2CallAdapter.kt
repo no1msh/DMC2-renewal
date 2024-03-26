@@ -7,12 +7,17 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 class DMC2CallAdapter<R : Any> private constructor(private val responseType: Type) :
-    CallAdapter<R, Call<CustomResult<R>>> {
+    CallAdapter<R, Call<Result<R>>> {
     override fun responseType(): Type = responseType
 
-    override fun adapt(call: Call<R>): Call<CustomResult<R>> = DMC2Call(call)
+    override fun adapt(call: Call<R>): Call<Result<R>> = DMC2Call(call, responseType)
 
     companion object CallAdapterFactory : CallAdapter.Factory() {
+        private const val RETURN_TYPE_IS_NOT_PARAMETERIZED_TYPE =
+            "Return type must be parameterized as Call<Result<Foo>> or Call<Result<out Foo>>"
+        private const val RESPONSE_MUST_BE_PARAMETERIZED = "" +
+            "Response must be parameterized as Result<Foo> or Result<out Foo>"
+
         override fun get(
             returnType: Type,
             annotations: Array<out Annotation>,
@@ -23,17 +28,17 @@ class DMC2CallAdapter<R : Any> private constructor(private val responseType: Typ
             }
 
             check(returnType is ParameterizedType) {
-                "return type must be parameterized as Call<Result<Foo>> or Call<Result<out Foo>>"
+                RETURN_TYPE_IS_NOT_PARAMETERIZED_TYPE
             }
 
             val responseType: Type = getParameterUpperBound(0, returnType)
 
-            if (getRawType(responseType) != CustomResult::class.java) {
+            if (getRawType(responseType) != Result::class.java) {
                 return null
             }
 
             check(responseType is ParameterizedType) {
-                "Response must be parameterized as Result<Foo> or Result<out Foo>"
+                RESPONSE_MUST_BE_PARAMETERIZED
             }
 
             val successBodyType = getParameterUpperBound(0, responseType)
