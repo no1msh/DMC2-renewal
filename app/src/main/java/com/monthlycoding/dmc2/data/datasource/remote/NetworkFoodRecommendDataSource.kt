@@ -9,7 +9,7 @@ import javax.inject.Singleton
 class NetworkFoodRecommendDataSource @Inject constructor(
     private val foodRecommendService: FoodRecommendService
 ) : FoodRecommendDataSource {
-    override suspend fun getFoodRecommends(categoryIds: List<Int>): List<FoodRecommendDto> {
+    override suspend fun getFoodRecommends(categoryIds: List<Int>): Result<List<FoodRecommendDto>> {
         return foodRecommendService.getFoodRecommends(categoryIds)
     }
 }

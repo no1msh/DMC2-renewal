@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.databinding.ActivityCardNewsBinding
 import com.monthlycoding.dmc2.presenter.cardnews.adapter.CardNewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +25,7 @@ class CardNewsActivity : BindingActivity<ActivityCardNewsBinding>(R.layout.activ
 
         initActionBar()
         initCardNewsAdapter()
-        cardNewsViewModel.getAllCardNews()
+        cardNewsViewModel.getAllCardNews(::onRemoteError)
         observeAllCardNews()
     }
 
@@ -48,5 +49,10 @@ class CardNewsActivity : BindingActivity<ActivityCardNewsBinding>(R.layout.activ
         cardNewsViewModel.allCardNews.observe(this) { allCardNews ->
             cardNewsAdapter.submitList(allCardNews)
         }
+    }
+
+    private fun onRemoteError(message: String) {
+        showDefaultToast(this, message)
+        finish()
     }
 }

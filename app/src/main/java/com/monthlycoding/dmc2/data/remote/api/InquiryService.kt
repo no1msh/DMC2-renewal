@@ -9,5 +9,5 @@ interface InquiryService {
     suspend fun postInquiry(
         @Body
         inquiryRequestDto: InquiryRequestDto,
-    )
+    ): Result<Unit>
 }

@@ -9,7 +9,7 @@ import javax.inject.Singleton
 class NetworkCardNewsDataSource @Inject constructor(
     private val cardNewsService: CardNewsService
 ) : CardNewsDataSource {
-    override suspend fun getAllCardNews(): List<CardNewsDto> {
+    override suspend fun getAllCardNews(): Result<List<CardNewsDto>> {
         return cardNewsService.getAllCardNews()
     }
 }

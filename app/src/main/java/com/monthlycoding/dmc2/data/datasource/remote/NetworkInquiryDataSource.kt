@@ -10,7 +10,7 @@ import javax.inject.Singleton
 class NetworkInquiryDataSource @Inject constructor(
     private val inquiryService: InquiryService
 ) : InquiryDataSource {
-    override suspend fun postInquiry(inquiry: Inquiry) {
-        inquiryService.postInquiry(inquiry.toRequestDto())
+    override suspend fun postInquiry(inquiry: Inquiry): Result<Unit> {
+        return inquiryService.postInquiry(inquiry.toRequestDto())
     }
 }

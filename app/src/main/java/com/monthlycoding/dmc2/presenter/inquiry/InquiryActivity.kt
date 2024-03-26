@@ -32,7 +32,8 @@ class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activit
                         content = binding.etInquiryContent.text.toString(),
                         email = binding.etInquiryEmail.text.toString(),
                         inquiryTypeId = InquiryType.findById(binding.spinnerInquiryType.selectedItemPosition).id
-                    )
+                    ),
+                    ::onRemoteError,
                 )
             }
         }
@@ -68,6 +69,11 @@ class InquiryActivity : BindingActivity<ActivityInquiryBinding>(R.layout.activit
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerInquiryType.adapter = adapter
         }
+    }
+
+    private fun onRemoteError(message: String) {
+        showDefaultToast(this, message)
+        finish()
     }
 
     private fun CharSequence?.isValidateEmail() =

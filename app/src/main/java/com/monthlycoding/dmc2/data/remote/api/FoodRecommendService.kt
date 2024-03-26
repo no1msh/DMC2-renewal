@@ -9,5 +9,5 @@ interface FoodRecommendService {
     @GET("/category")
     suspend fun getFoodRecommends(
         @Query("category") categories: List<Int>
-    ): List<FoodRecommendDto>
+    ): Result<List<FoodRecommendDto>>
 }

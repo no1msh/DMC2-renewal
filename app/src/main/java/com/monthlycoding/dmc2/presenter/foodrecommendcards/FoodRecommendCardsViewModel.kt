@@ -1,9 +1,11 @@
 package com.monthlycoding.dmc2.presenter.foodrecommendcards
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.monthlycoding.dmc2.common.RemoteError
 import com.monthlycoding.dmc2.presenter.foodrecommendcards.model.FoodRecommendUiModel
 import com.monthlycoding.domain.model.FoodRecommend
 import com.monthlycoding.domain.repository.FoodRecommendRepository
@@ -18,14 +20,19 @@ class FoodRecommendCardsViewModel @Inject constructor(
     private val _foodRecommends: MutableLiveData<List<FoodRecommendUiModel>> = MutableLiveData()
     val foodRecommends: LiveData<List<FoodRecommendUiModel>> get() = _foodRecommends
 
-    fun fetchFoodRecommends(categoryIds: List<Int>) {
+    fun fetchFoodRecommends(categoryIds: List<Int>, showMessage: (String) -> Unit) {
         viewModelScope.launch {
-            runCatching {
-                foodRecommendRepository.getFoodRecommends(categoryIds).map { it.toUiModel() }
-                    .shuffled()
-            }.onSuccess {
-                _foodRecommends.value = it
-            }
+            foodRecommendRepository.getFoodRecommends(categoryIds)
+                .onSuccess {
+                    _foodRecommends.value = it.map { it.toUiModel() }
+                }
+                .onFailure {
+                    Log.d(
+                        "${FoodRecommendCardsViewModel::class.simpleName}",
+                        (it as RemoteError).toStringForDeveloper()
+                    )
+                    showMessage(it.toStringForUser())
+                }
         }
     }
 

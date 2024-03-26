@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface CardNewsService {
 
     @GET("/cardnews")
-    suspend fun getAllCardNews(): List<CardNewsDto>
+    suspend fun getAllCardNews(): Result<List<CardNewsDto>>
 }

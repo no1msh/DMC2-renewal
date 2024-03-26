@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import com.monthlycoding.dmc2.R
 import com.monthlycoding.dmc2.common.BindingActivity
+import com.monthlycoding.dmc2.common.showDefaultToast
 import com.monthlycoding.dmc2.data.mapper.toCuisineMarker
 import com.monthlycoding.dmc2.databinding.ActivityFoodRecommendCardsBinding
 import com.monthlycoding.dmc2.presenter.foodRecommendDetail.FoodRecommendDetailWebActivity
@@ -36,7 +37,7 @@ class FoodRecommendCardsActivity :
         initActionBar()
         initAdapter()
         val categoryIds: IntArray = intent.getIntArrayExtra(KEY_CATEGORY_IDS) ?: IntArray(0)
-        foodRecommendCardsViewModel.fetchFoodRecommends(categoryIds.toList())
+        foodRecommendCardsViewModel.fetchFoodRecommends(categoryIds.toList(), ::onRemoteError)
         observeFoodRecommends()
     }
 
@@ -76,6 +77,11 @@ class FoodRecommendCardsActivity :
             android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun onRemoteError(message: String) {
+        showDefaultToast(this, message)
+        finish()
     }
 
     companion object {

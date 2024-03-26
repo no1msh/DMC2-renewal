@@ -8,7 +8,7 @@ import javax.inject.Inject
 class DefaultInquiryRepository @Inject constructor(
     private val inquiryDataSource: InquiryDataSource
 ) : InquiryRepository {
-    override suspend fun postInquiry(inquiry: Inquiry) {
-        inquiryDataSource.postInquiry(inquiry)
+    override suspend fun postInquiry(inquiry: Inquiry): Result<Unit> {
+        return inquiryDataSource.postInquiry(inquiry)
     }
 }
