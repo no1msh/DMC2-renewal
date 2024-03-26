@@ -1,6 +1,5 @@
 package com.monthlycoding.dmc2.data.repository
 
-import com.monthlycoding.dmc2.common.CustomResult
 import com.monthlycoding.dmc2.data.datasource.remote.FoodRecommendDataSource
 import com.monthlycoding.dmc2.data.mapper.toDomain
 import com.monthlycoding.dmc2.data.mapper.toResult
@@ -13,12 +12,8 @@ class DefaultFoodRecommendRepository @Inject constructor(
     private val foodRecommendDataSource: FoodRecommendDataSource
 ) : FoodRecommendRepository {
     override suspend fun getFoodRecommends(categoryIds: List<Int>): Result<List<FoodRecommend>> {
-        val customResult: CustomResult<List<FoodRecommendDto>> =
-            foodRecommendDataSource.getFoodRecommends(categoryIds)
-        val mapper: (List<FoodRecommendDto>) -> List<FoodRecommend> = {
+        return foodRecommendDataSource.getFoodRecommends(categoryIds).toResult {
             it.map(FoodRecommendDto::toDomain)
         }
-
-        return customResult.toResult(mapper)
     }
 }

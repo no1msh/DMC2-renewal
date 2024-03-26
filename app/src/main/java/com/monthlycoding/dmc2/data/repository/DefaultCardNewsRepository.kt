@@ -1,6 +1,5 @@
 package com.monthlycoding.dmc2.data.repository
 
-import com.monthlycoding.dmc2.common.CustomResult
 import com.monthlycoding.dmc2.data.datasource.remote.CardNewsDataSource
 import com.monthlycoding.dmc2.data.mapper.toDomain
 import com.monthlycoding.dmc2.data.mapper.toResult
@@ -13,12 +12,8 @@ class DefaultCardNewsRepository @Inject constructor(
     private val cardNewsDataSource: CardNewsDataSource
 ) : CardNewsRepository {
     override suspend fun getAllCardNews(): Result<List<CardNews>> {
-        val customResult: CustomResult<List<CardNewsDto>> = cardNewsDataSource.getAllCardNews()
-
-        val mapper: (List<CardNewsDto>) -> List<CardNews> = {
+        return cardNewsDataSource.getAllCardNews().toResult {
             it.map(CardNewsDto::toDomain)
         }
-
-        return customResult.toResult(mapper)
     }
 }

@@ -21,8 +21,9 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SchoolAroundMapActivity :
     BindingActivity<ActivitySchoolAroundMapBinding>(R.layout.activity_school_around_map),
     MapFilterDialogClickListener,
@@ -84,7 +85,7 @@ class SchoolAroundMapActivity :
     override fun onCategorySelectDoneClick(categoryIds: List<Int>) {
         displayedMarkers.forEach { it.map = null }
         displayedMarkers.clear()
-        schoolAroundMapViewModel.getStoreMarkers(categoryIds)
+        schoolAroundMapViewModel.getStoreMarkers(categoryIds, ::onRemoteError)
     }
 
     private fun observeCuisineMarkers() {
@@ -174,6 +175,11 @@ class SchoolAroundMapActivity :
 
     override fun onDetailClick(url: String, storeName: String) {
         startActivity(FoodRecommendDetailWebActivity.getIntent(this, url, storeName))
+    }
+
+    private fun onRemoteError(message: String) {
+        showDefaultToast(this, message)
+        finish()
     }
 
     companion object {
